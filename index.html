@@ -13,24 +13,30 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #fafafa;
-            color: #333;
             line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
         }
 
-        /* Header */
-        .header {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            position: sticky;
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -39,738 +45,577 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #2c3e50;
         }
 
-        .logo span {
-            color: #3498db;
-        }
-
-        /* Navigation */
         .nav-tabs {
             display: flex;
-            gap: 5px;
-            flex-wrap: wrap;
+            gap: 2rem;
         }
 
         .nav-tab {
-            padding: 10px 20px;
-            background: transparent;
-            color: #2c3e50;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
+            padding: 0.5rem 1rem;
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            border-radius: 25px;
             cursor: pointer;
-            font-size: 0.95rem;
-            font-weight: 500;
             transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .nav-tab:hover {
-            background: #f8f9fa;
-            border-color: #3498db;
-            color: #3498db;
-        }
-
-        .nav-tab.active {
-            background: #3498db;
-            color: white;
-            border-color: #3498db;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(44, 62, 80, 0.8)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDYwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjZjhmOWZhIi8+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjE1MCIgcj0iNDAiIGZpbGw9IiNlY2Y0ZmYiLz4KPGNpcmNsZSBjeD0iOTAwIiBjeT0iNDUwIiByPSI2MCIgZmlsbD0iI2VjZjRmZiIvPgo8Y2lyY2xlIGN4PSI2MDAiIGN5PSIzMDAiIHI9IjMwIiBmaWxsPSIjZTNmMmZkIi8+Cjwvc3ZnPgo=');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-            min-height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero-content p {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
-            opacity: 0.95;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 60px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            margin-bottom: 5px;
-        }
-
-        .stat-item p {
             font-size: 1rem;
-            opacity: 0.9;
         }
 
-        /* Collaborators Section */
-        .collaborators {
-            background: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .collaborators h2 {
-            font-size: 2.2rem;
-            color: #2c3e50;
-            margin-bottom: 40px;
-        }
-
-        .collaborator-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .collaborator-logo {
-            width: 120px;
-            height: 80px;
-            background: #f8f9fa;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            color: #6c757d;
-            transition: all 0.3s ease;
-        }
-
-        .collaborator-logo:hover {
-            border-color: #3498db;
-            transform: translateY(-3px);
-        }
-
-        /* Main Content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .content {
-            background: white;
-            margin: 40px 0;
-            padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .section-title:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: #3498db;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .info-card {
-            background: #fafafa;
-            border: 1px solid #e9ecef;
-            padding: 30px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border-color: #3498db;
-        }
-
-        .info-card h3 {
-            color: #2c3e50;
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-        }
-
-        .info-card p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.7;
-        }
-
-        .links {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .link-btn {
-            padding: 8px 16px;
-            background: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .link-btn:hover {
-            background: #2980b9;
+        .nav-tab:hover, .nav-tab.active {
+            background: rgba(255,255,255,0.2);
             transform: translateY(-2px);
         }
 
-        /* Contact Grid */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            min-height: calc(100vh - 160px);
         }
 
-        .contact-card {
+        .section {
+            display: none;
+            padding: 2rem 0;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Home Section */
+        .hero {
+            background: linear-gradient(rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f8f9ff" width="1200" height="600"/><circle fill="%23e8ebff" cx="200" cy="150" r="80"/><circle fill="%23d1d9ff" cx="800" cy="300" r="120"/><circle fill="%23e8ebff" cx="1000" cy="100" r="60"/></svg>');
+            padding: 4rem 0;
+            text-align: center;
+            background-size: cover;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #718096;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .collaborators {
+            margin-top: 3rem;
+            padding: 2rem;
             background: white;
-            border: 2px solid #e9ecef;
-            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .collaborators h3 {
+            margin-bottom: 1.5rem;
+            color: #4a5568;
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .partner-logo {
+            height: 80px;
+            background: #f7fafc;
+            border: 2px dashed #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #a0aec0;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .content-section h2 {
+            color: #4a5568;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+        }
+
+        .content-section p {
+            color: #718096;
+            margin-bottom: 1rem;
+        }
+
+        /* People Section */
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .person-card {
+            background: #f7fafc;
+            padding: 1.5rem;
             border-radius: 10px;
             text-align: center;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            color: #2c3e50;
+            transition: transform 0.3s ease;
         }
 
-        .contact-card:hover {
-            border-color: #3498db;
+        .person-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.1);
-            text-decoration: none;
-            color: #3498db;
         }
 
-        .contact-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
+        .person-avatar {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
         }
 
-        .contact-card p {
-            color: #666;
-            font-size: 0.95rem;
+        /* Publications & Blogs */
+        .publication-item, .blog-item {
+            background: #f7fafc;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .publication-item h4, .blog-item h4 {
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-item p, .blog-item p {
+            color: #718096;
+            font-size: 0.9rem;
         }
 
         /* Footer */
-        .footer {
-            background: #2c3e50;
+        footer {
+            background: #2d3748;
             color: white;
             text-align: center;
-            padding: 30px 20px;
-            margin-top: 60px;
+            padding: 2rem 0;
+            margin-top: 3rem;
         }
 
-        .footer p {
-            margin: 0;
-            opacity: 0.9;
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        /* Responsive Design */
+        .contact-info, .contact-form {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-info h4 {
+            color: #4a5568;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 1rem;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-
             .nav-tabs {
-                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
             }
-
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-stats {
-                gap: 30px;
-            }
-
-            .content {
-                padding: 30px 20px;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .collaborator-logos {
-                gap: 20px;
-            }
-
-            .collaborator-logo {
-                width: 100px;
-                height: 70px;
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-tab {
-                padding: 8px 12px;
-                font-size: 0.85rem;
-            }
-
-            .hero {
-                padding: 60px 20px;
-            }
-
-            .hero-content h1 {
+            
+            .hero h1 {
                 font-size: 2rem;
             }
-
-            .hero-content p {
-                font-size: 1.1rem;
+            
+            .hero p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <div class="header-content">
-            <div class="logo">
-                <span>ERIC</span> - Eureka Research & Innovation Center
-            </div>
-            <div class="nav-tabs">
-                <button class="nav-tab active" onclick="showTab('home')">Home</button>
-                <button class="nav-tab" onclick="showTab('people')">People</button>
-                <button class="nav-tab" onclick="showTab('wings')">Wings</button>
-                <button class="nav-tab" onclick="showTab('publications')">Publications</button>
-                <button class="nav-tab" onclick="showTab('projects')">Projects</button>
-                <button class="nav-tab" onclick="showTab('achievements')">Achievements</button>
-                <button class="nav-tab" onclick="showTab('courses')">Courses</button>
-                <button class="nav-tab" onclick="showTab('contact')">Contact</button>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">ERIC</div>
+                <nav class="nav-tabs">
+                    <button class="nav-tab active" onclick="showSection('home')">Home</button>
+                    <button class="nav-tab" onclick="showSection('people')">People</button>
+                    <button class="nav-tab" onclick="showSection('wings')">Wings</button>
+                    <button class="nav-tab" onclick="showSection('publications')">Publications</button>
+                    <button class="nav-tab" onclick="showSection('blogs')">Blogs</button>
+                    <button class="nav-tab" onclick="showSection('contact')">Contact</button>
+                </nav>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Home Tab - Hero Section -->
-    <div id="home" class="tab-content active">
-        <div class="hero">
-            <div class="hero-content">
-                <h1>Eureka Research & Innovation Center</h1>
-                <p>Empowering the next generation of researchers and innovators through collaborative research, cutting-edge technology, and transformative discoveries that shape the future of science and society.</p>
-                
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <h3>150+</h3>
-                        <p>Active Researchers</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>50+</h3>
-                        <p>Research Projects</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>200+</h3>
-                        <p>Publications</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>25+</h3>
-                        <p>Research Areas</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Collaborators Section -->
-        <div class="collaborators">
-            <h2>Our Collaborators & Partners</h2>
-            <div class="collaborator-logos">
-                <div class="collaborator-logo">MIT</div>
-                <div class="collaborator-logo">Stanford</div>
-                <div class="collaborator-logo">Oxford</div>
-                <div class="collaborator-logo">Cambridge</div>
-                <div class="collaborator-logo">Harvard</div>
-                <div class="collaborator-logo">ETH Zurich</div>
-                <div class="collaborator-logo">Google AI</div>
-                <div class="collaborator-logo">Microsoft</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Other Tabs Content -->
-    <div class="container">
-        <!-- People Tab -->
-        <div id="people" class="tab-content">
-            <div class="content">
-                <h2 class="section-title">Our Research Community</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Faculty Leaders</h3>
-                        <p>Distinguished professors and researchers leading groundbreaking studies across multiple disciplines. Our faculty brings decades of experience and international recognition to guide the next generation of researchers in their academic and professional journey.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Faculty Profiles</a>
-                            <a href="#" class="link-btn">Research Areas</a>
-                            <a href="#" class="link-btn">Publications</a>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <h3>Graduate Researchers</h3>
-                        <p>PhD and Master's students pursuing cutting-edge research in their specialized fields. Our graduate researchers form the backbone of our research community, contributing fresh perspectives, innovative methodologies, and breakthrough discoveries.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Student Directory</a>
-                            <a href="#" class="link-btn">Thesis Projects</a>
-                            <a href="#" class="link-btn">Mentorship Program</a>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <h3>Undergraduate Contributors</h3>
-                        <p>Talented undergraduate students participating in research projects and gaining valuable hands-on experience. We believe in nurturing young talent early and providing comprehensive opportunities for research skill development.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Join Research</a>
-                            <a href="#" class="link-btn">Opportunities</a>
-                            <a href="#" class="link-btn">Success Stories</a>
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="container">
+                    <h1>Eureka Research & Innovation Center</h1>
+                    <p>Building a vibrant community of researchers, students, and innovators dedicated to advancing knowledge and fostering breakthrough discoveries in various fields of study.</p>
+                    
+                    <div class="collaborators">
+                        <h3>Our Collaborators & Partners</h3>
+                        <div class="logo-grid">
+                            <div class="partner-logo">University Partner</div>
+                            <div class="partner-logo">Research Institute</div>
+                            <div class="partner-logo">Industry Partner</div>
+                            <div class="partner-logo">Innovation Hub</div>
+                            <div class="partner-logo">Tech Company</div>
+                            <div class="partner-logo">Academic Alliance</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Wings Tab -->
-        <div id="wings" class="tab-content">
-            <div class="content">
-                <h2 class="section-title">Research Wings</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>AI & Machine Learning Wing</h3>
-                        <p>Focused on advancing artificial intelligence, deep learning, and machine learning applications across various domains including healthcare, finance, autonomous systems, and natural language processing with state-of-the-art methodologies.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Research Papers</a>
-                            <a href="#" class="link-btn">Code Repository</a>
-                            <a href="#" class="link-btn">Live Demos</a>
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with our research community. Whether you're interested in collaboration, have questions about our work, or want to join our community, we'd love to hear from you.</p>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-info">
+                            <h4>Get In Touch</h4>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">📧</div>
+                                <div>
+                                    <strong>Email</strong><br>
+                                    contact@eric-research.org<br>
+                                    info@eric-research.org
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">📞</div>
+                                <div>
+                                    <strong>Phone</strong><br>
+                                    +1 (555) 123-4567<br>
+                                    +1 (555) 987-6543
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">📍</div>
+                                <div>
+                                    <strong>Address</strong><br>
+                                    123 Research Boulevard<br>
+                                    Innovation District, ID 12345
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">🕒</div>
+                                <div>
+                                    <strong>Office Hours</strong><br>
+                                    Monday - Friday: 9:00 AM - 6:00 PM<br>
+                                    Saturday: 10:00 AM - 4:00 PM
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="info-card">
-                        <h3>Biomedical Research Wing</h3>
-                        <p>Conducting innovative research in biotechnology, medical devices, drug discovery, personalized medicine, and computational biology to improve human health outcomes and advance medical science through interdisciplinary approaches.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Publications</a>
-                            <a href="#" class="link-btn">Lab Protocols</a>
-                            <a href="#" class="link-btn">Clinical Trials</a>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <h3>Environmental Science Wing</h3>
-                        <p>Addressing climate change, sustainability challenges, and environmental conservation through interdisciplinary research, innovative technologies, and data-driven solutions for creating a more sustainable and resilient future.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Research Data</a>
-                            <a href="#" class="link-btn">Field Studies</a>
-                            <a href="#" class="link-btn">Policy Briefs</a>
+                        
+                        <div class="contact-form">
+                            <h4>Send Us a Message</h4>
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input type="text" id="subject" name="subject" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" name="message" required placeholder="Tell us about your research interests or how you'd like to collaborate..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="submit-btn">Send Message</button>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Publications Tab -->
-        <div id="publications" class="tab-content">
-            <div class="content">
-                <h2 class="section-title">Publications & Research Output</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Peer-Reviewed Journal Articles</h3>
-                        <p>High-impact publications in leading international journals, showcasing our community's significant contributions to advancing scientific knowledge, methodology development, and theoretical understanding across diverse research domains.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Journal Papers</a>
-                            <a href="#" class="link-btn">Citation Metrics</a>
-                            <a href="#" class="link-btn">Open Access</a>
+        <!-- People Section -->
+        <section id="people" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Our Research Community</h2>
+                    <p>Meet the dedicated researchers, faculty members, and students who make up our vibrant research community. Together, we're pushing the boundaries of knowledge and innovation.</p>
+                    
+                    <div class="people-grid">
+                        <div class="person-card">
+                            <div class="person-avatar">DR</div>
+                            <h4>Dr. Research Lead</h4>
+                            <p>Principal Investigator</p>
+                            <p>Specializing in computational sciences and data analytics with over 10 years of research experience.</p>
                         </div>
-                    </div>
-                    <div class="info-card">
-                        <h3>Conference Proceedings</h3>
-                        <p>Presentations and papers from prestigious international conferences, workshops, and symposiums where our researchers share their latest findings, methodologies, and engage with the global research community.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Conference Papers</a>
-                            <a href="#" class="link-btn">Presentations</a>
-                            <a href="#" class="link-btn">Poster Sessions</a>
+                        <div class="person-card">
+                            <div class="person-avatar">PM</div>
+                            <h4>Prof. Maria Scholar</h4>
+                            <p>Senior Researcher</p>
+                            <p>Expert in biotechnology and molecular research with numerous published papers in top-tier journals.</p>
                         </div>
-                    </div>
-                    <div class="info-card">
-                        <h3>Books & Technical Reports</h3>
-                        <p>Comprehensive books, book chapters, and technical reports authored by our community members, serving as valuable educational resources and reference materials for students, researchers, and practitioners worldwide.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Book Catalog</a>
-                            <a href="#" class="link-btn">Technical Reports</a>
-                            <a href="#" class="link-btn">Publisher Links</a>
+                        <div class="person-card">
+                            <div class="person-avatar">JS</div>
+                            <h4>John Student</h4>
+                            <p>PhD Candidate</p>
+                            <p>Researching artificial intelligence applications in healthcare and medical diagnostics.</p>
+                        </div>
+                        <div class="person-card">
+                            <div class="person-avatar">SA</div>
+                            <h4>Sarah Analyst</h4>
+                            <p>Research Associate</p>
+                            <p>Data scientist focusing on machine learning algorithms and statistical modeling.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Projects Tab -->
-        <div id="projects" class="tab-content">
-            <div class="content">
-                <h2 class="section-title">Active Research Projects</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Funded Research Projects</h3>
-                        <p>Large-scale research initiatives supported by government agencies, private foundations, and industry partners, addressing critical challenges in science, technology, and society with substantial financial backing and resources.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Project Details</a>
-                            <a href="#" class="link-btn">Source Code</a>
-                            <a href="#" class="link-btn">Live Demos</a>
-                        </div>
+        <!-- Wings Section -->
+        <section id="wings" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Research Wings</h2>
+                    <p>ERIC is organized into specialized research wings, each focusing on different domains of scientific inquiry and innovation.</p>
+                    
+                    <div class="publication-item">
+                        <h4>Computational Sciences Wing</h4>
+                        <p>Focuses on algorithm development, high-performance computing, and computational modeling across various scientific disciplines.</p>
                     </div>
-                    <div class="info-card">
-                        <h3>Collaborative Initiatives</h3>
-                        <p>Cross-disciplinary projects involving multiple research groups, universities, and international institutions to tackle complex problems requiring diverse expertise, shared resources, and coordinated efforts.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Collaboration Map</a>
-                            <a href="#" class="link-btn">Shared Resources</a>
-                            <a href="#" class="link-btn">Joint Publications</a>
-                        </div>
+                    
+                    <div class="publication-item">
+                        <h4>Biotechnology & Life Sciences Wing</h4>
+                        <p>Dedicated to advancing research in molecular biology, genetics, bioengineering, and medical technologies.</p>
                     </div>
-                    <div class="info-card">
-                        <h3>Student-Led Projects</h3>
-                        <p>Independent research projects initiated and led by graduate and undergraduate students, providing opportunities for creative exploration, skill development, and innovative problem-solving in a supportive environment.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Project Gallery</a>
-                            <a href="#" class="link-btn">Code & Data</a>
-                            <a href="#" class="link-btn">Prototype Demos</a>
-                        </div>
+                    
+                    <div class="publication-item">
+                        <h4>Artificial Intelligence & Machine Learning Wing</h4>
+                        <p>Developing cutting-edge AI solutions, neural networks, and intelligent systems for real-world applications.</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Environmental Sciences Wing</h4>
+                        <p>Research focused on sustainability, climate change, renewable energy, and environmental conservation technologies.</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Social Sciences & Policy Wing</h4>
+                        <p>Interdisciplinary research examining societal impacts of technology and evidence-based policy development.</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Achievements Tab -->
-        <div id="achievements" class="tab-content">
-            <div class="content">
-                <h2 class="section-title">Community Achievements</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Awards & Recognitions</h3>
-                        <p>Prestigious awards and honors received by our community members for their outstanding contributions to research, innovation, academic excellence, and significant impact on their respective fields and society at large.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Award Details</a>
-                            <a href="#" class="link-btn">Winner Profiles</a>
-                            <a href="#" class="link-btn">Media Coverage</a>
-                        </div>
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Recent Publications</h2>
+                    <p>Discover our latest research contributions and scholarly publications that are advancing knowledge in various fields.</p>
+                    
+                    <div class="publication-item">
+                        <h4>Machine Learning Approaches in Healthcare Diagnostics</h4>
+                        <p>Published in Journal of Medical AI, 2024. Authors: Dr. Research Lead, John Student, Sarah Analyst</p>
                     </div>
-                    <div class="info-card">
-                        <h3>Patents & Innovations</h3>
-                        <p>Intellectual property and technological innovations developed by our researchers, contributing to scientific advancement, technological progress, and potential commercial applications that benefit society and industry.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Patent Database</a>
-                            <a href="#" class="link-btn">Innovation Showcase</a>
-                            <a href="#" class="link-btn">Technology Transfer</a>
-                        </div>
+                    
+                    <div class="publication-item">
+                        <h4>Sustainable Energy Solutions for Urban Environments</h4>
+                        <p>Published in Environmental Technology Review, 2024. Authors: Prof. Maria Scholar, Environmental Team</p>
                     </div>
-                    <div class="info-card">
-                        <h3>Community Impact</h3>
-                        <p>Measurable positive impact of our research on society, including policy changes, technological adoptions, healthcare improvements, and enhanced quality of life for communities worldwide through evidence-based solutions.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Impact Stories</a>
-                            <a href="#" class="link-btn">Metrics & Data</a>
-                            <a href="#" class="link-btn">Success Cases</a>
-                        </div>
+                    
+                    <div class="publication-item">
+                        <h4>Computational Models for Molecular Interactions</h4>
+                        <p>Published in Computational Biology Journal, 2023. Authors: Research Team ERIC</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Social Impact of Digital Innovation in Education</h4>
+                        <p>Published in Technology & Society Quarterly, 2023. Authors: Social Sciences Wing</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Courses Tab -->
-        <div id="courses" class="tab-content">
-            <div class="content">
-                <h2 class="section-title">Educational Offerings</h2>
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>Research Methodology Courses</h3>
-                        <p>Comprehensive courses covering research design, data analysis, statistical methods, scientific writing, and ethical considerations to equip students with essential research skills and methodological knowledge for successful academic careers.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Course Materials</a>
-                            <a href="#" class="link-btn">Video Lectures</a>
-                            <a href="#" class="link-btn">Interactive Tools</a>
-                        </div>
+        <!-- Blogs Section -->
+        <section id="blogs" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Research Insights & Blogs</h2>
+                    <p>Stay updated with our latest research insights, methodologies, and thought leadership pieces from our community members.</p>
+                    
+                    <div class="blog-item">
+                        <h4>Getting Started with Research: A Student's Guide</h4>
+                        <p>Tips and strategies for undergraduate and graduate students beginning their research journey. Written by John Student - January 2025</p>
                     </div>
-                    <div class="info-card">
-                        <h3>Specialized Workshops</h3>
-                        <p>Hands-on workshops focusing on cutting-edge tools, techniques, and technologies relevant to various research domains, led by experts and designed to provide practical skills and knowledge for immediate application.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Workshop Schedule</a>
-                            <a href="#" class="link-btn">Tutorial Code</a>
-                            <a href="#" class="link-btn">Practice Exercises</a>
-                        </div>
+                    
+                    <div class="blog-item">
+                        <h4>The Future of Interdisciplinary Research</h4>
+                        <p>Exploring how collaboration across different fields is driving innovation and breakthrough discoveries. Written by Dr. Research Lead - December 2024</p>
                     </div>
-                    <div class="info-card">
-                        <h3>Mentorship Programs</h3>
-                        <p>Structured mentorship programs pairing experienced researchers with students and early-career researchers to provide personalized guidance, career development support, and professional networking opportunities.</p>
-                        <div class="links">
-                            <a href="#" class="link-btn">Program Information</a>
-                            <a href="#" class="link-btn">Mentor Network</a>
-                            <a href="#" class="link-btn">Success Stories</a>
-                        </div>
+                    
+                    <div class="blog-item">
+                        <h4>Data Ethics in Modern Research</h4>
+                        <p>Discussing the importance of ethical considerations in data collection and analysis for responsible research practices. Written by Sarah Analyst - November 2024</p>
+                    </div>
+                    
+                    <div class="blog-item">
+                        <h4>Building Sustainable Research Communities</h4>
+                        <p>Lessons learned from establishing and maintaining collaborative research environments that foster innovation. Written by Prof. Maria Scholar - October 2024</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+    </main>
 
-        <!-- Contact Tab -->
-        <div id="contact" class="tab-content">
-            <div class="content">
-                <h2 class="section-title">Connect With Us</h2>
-                <div class="contact-grid">
-                    <a href="mailto:info@eric-research.org" class="contact-card">
-                        <h3>📧 Email</h3>
-                        <p>info@eric-research.org</p>
-                    </a>
-                    <a href="https://linkedin.com/company/eric-research" class="contact-card">
-                        <h3>💼 LinkedIn</h3>
-                        <p>Professional Network</p>
-                    </a>
-                    <a href="https://github.com/eric-research" class="contact-card">
-                        <h3>💻 GitHub</h3>
-                        <p>Open Source Projects</p>
-                    </a>
-                    <a href="https://twitter.com/eric_research" class="contact-card">
-                        <h3>🐦 Twitter</h3>
-                        <p>Latest Updates & News</p>
-                    </a>
-                    <a href="https://discord.gg/eric-research" class="contact-card">
-                        <h3>💬 Discord</h3>
-                        <p>Community Discussion</p>
-                    </a>
-                    <a href="https://youtube.com/c/eric-research" class="contact-card">
-                        <h3>📺 YouTube</h3>
-                        <p>Educational Content</p>
-                    </a>
-                </div>
-            </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 ERIC - Eureka Research & Innovation Center. Built by Research Community Hub. All rights reserved.</p>
         </div>
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2025 ERIC - Eureka Research & Innovation Center. All rights reserved.</p>
-    </div>
+    </footer>
 
     <script>
-        function showTab(tabName) {
-            // Hide all tab contents
-            const tabContents = document.querySelectorAll('.tab-content');
-            tabContents.forEach(content => {
-                content.classList.remove('active');
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
             });
-
+            
             // Remove active class from all tabs
             const tabs = document.querySelectorAll('.nav-tab');
             tabs.forEach(tab => {
                 tab.classList.remove('active');
             });
-
-            // Show selected tab content
-            document.getElementById(tabName).classList.add('active');
-
+            
+            // Show selected section
+            document.getElementById(sectionName).classList.add('active');
+            
             // Add active class to clicked tab
             event.target.classList.add('active');
-
-            // Scroll to top for non-home tabs
-            if (tabName !== 'home') {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
         }
 
-        // Add smooth animations and interactions
+        // Smooth scrolling for better UX
         document.addEventListener('DOMContentLoaded', function() {
-            // Animate stats on scroll
-            const observerOptions = {
-                threshold: 0.5,
-                rootMargin: '0px 0px -100px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
+            // Add smooth hover effects
+            const cards = document.querySelectorAll('.person-card, .publication-item, .blog-item');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
                 });
-            }, observerOptions);
-
-            // Observe all info cards
-            document.querySelectorAll('.info-card').forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(card);
-            });
-
-            // Add click animation to buttons
-            document.querySelectorAll('.link-btn, .nav-tab').forEach(button => {
-                button.addEventListener('click', function() {
-                    this.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        this.style.transform = 'scale(1)';
-                    }, 150);
-                });
-            });
-
-            // Smooth hover effects for collaborator logos
-            document.querySelectorAll('.collaborator-logo').forEach(logo => {
-                logo.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px) scale(1.05)';
-                });
-                
-                logo.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
                 });
             });
         });
