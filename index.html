@@ -12,412 +12,295 @@
         }
 
         body {
-            font-family: 'Inter', 'Arial', sans-serif;
-            background-color: #ffffff;
-            color: #1a1a1a;
-            line-height: 1.7;
-        }
-
-        /* Sidebar Navigation */
-        .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
-            z-index: 1000;
-            overflow-y: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .sidebar-header {
-            padding: 30px 25px;
-            text-align: center;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .sidebar-header h1 {
-            color: white;
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-
-        .sidebar-header p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 0.85rem;
-        }
-
-        .nav-menu {
-            padding: 20px 0;
-        }
-
-        .nav-item {
-            display: block;
-            padding: 15px 25px;
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-left: 3px solid transparent;
-            font-weight: 500;
-        }
-
-        .nav-item:hover,
-        .nav-item.active {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border-left-color: #4fc3f7;
-            transform: translateX(5px);
-        }
-
-        .nav-item.active {
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        /* Mobile Menu Toggle */
-        .menu-toggle {
-            display: none;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1001;
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        /* Main Content */
-        .main-content {
-            margin-left: 280px;
-            min-height: 100vh;
-            background: #fafbfc;
-        }
-
-        /* Hero Section with Cover Image */
-        .hero-section {
-            position: relative;
-            height: 70vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
-                        url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyMCIgaGVpZ2h0PSIxMDgwIiB2aWV3Qm94PSIwIDAgMTkyMCAxMDgwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZGVmcz4KPGN1YmljQmV6aWVyIGlkPSJjdXJ2ZSIgeDE9IjAlIiB5MT0iMTAwJSIgeDI9IjEwMCUiIHkyPSIwJSIvPgo8L2RlZnM+CjxyZWN0IHdpZHRoPSIxOTIwIiBoZWlnaHQ9IjEwODAiIGZpbGw9InVybCgjZ3JhZGllbnQpIi8+CjxkZWZzPgo8bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIxMDAlIj4KPHN0b3Agb2Zmc2V0PSIwJSIgc2Rvb2NtcGF0aW9uPSJzUkdCIiBzdG9wLWNvbG9yPSIjNjY3ZWVhIi8+CjxzdG9wIG9mZnNldD0iMTAwJSIgc3Rvb2NvbG9yPSIjNzY0YmEyIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPGNpcmNsZSBjeD0iMjAwIiBjeT0iMjAwIiByPSI2MCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjEpIi8+CjxjaXJjbGUgY3g9IjUwMCIgY3k9IjQwMCIgcj0iODAiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz4KPGNpcmNsZSBjeD0iMTAwMCIgY3k9IjMwMCIgcj0iMTAwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDgpIi8+CjxjaXJjbGUgY3g9IjE0MDAiIGN5PSI2MDAiIHI9IjkwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDYpIi8+CjxjaXJjbGUgY3g9IjE3MDAiIGN5PSIyNTAiIHI9IjcwIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMDcpIi8+CjxwYXRoIGQ9Ik0wLDU0MEM5NjAsNTQwIDk2MCw1NDAgMTkyMCw1NDBMMTkyMCwxMDgwTDAsMTA4MFoiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4xKSIvPgo8L3N2Zz4K');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 0 30px;
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero-content h1 {
-            font-size: 4rem;
-            font-weight: 800;
-            margin-bottom: 25px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: -1px;
-        }
-
-        .hero-content p {
-            font-size: 1.4rem;
-            margin-bottom: 35px;
-            opacity: 0.95;
-            font-weight: 300;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #333;
             line-height: 1.6;
         }
 
-        .hero-cta {
-            display: inline-flex;
-            gap: 20px;
+        /* Header */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .logo span {
+            color: #3498db;
+        }
+
+        /* Navigation */
+        .nav-tabs {
+            display: flex;
+            gap: 5px;
             flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 10px 20px;
+            background: transparent;
+            color: #2c3e50;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .nav-tab:hover {
+            background: #f8f9fa;
+            border-color: #3498db;
+            color: #3498db;
+        }
+
+        .nav-tab.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(52, 152, 219, 0.8), rgba(44, 62, 80, 0.8)), url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSI2MDAiIHZpZXdCb3g9IjAgMCAxMjAwIDYwMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjEyMDAiIGhlaWdodD0iNjAwIiBmaWxsPSIjZjhmOWZhIi8+CjxjaXJjbGUgY3g9IjMwMCIgY3k9IjE1MCIgcj0iNDAiIGZpbGw9IiNlY2Y0ZmYiLz4KPGNpcmNsZSBjeD0iOTAwIiBjeT0iNDUwIiByPSI2MCIgZmlsbD0iI2VjZjRmZiIvPgo8Y2lyY2xlIGN4PSI2MDAiIGN5PSIzMDAiIHI9IjMwIiBmaWxsPSIjZTNmMmZkIi8+Cjwvc3ZnPgo=');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
 
-        .cta-btn {
-            padding: 15px 30px;
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .cta-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-3px);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .cta-btn.primary {
-            background: #4fc3f7;
-            border-color: #4fc3f7;
-        }
-
-        .cta-btn.primary:hover {
-            background: #29b6f6;
-            border-color: #29b6f6;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Stats Section */
-        .stats-section {
-            background: white;
-            padding: 80px 0;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .stats-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 60px;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 20px;
-        }
-
-        .stat-number {
+        .hero-content h1 {
             font-size: 3.5rem;
-            font-weight: 800;
-            color: #667eea;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 1.1rem;
-            color: #666;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Collaborators Section */
-        .collaborators-section {
-            background: #f8f9fa;
-            padding: 80px 0;
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #2c3e50;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-            border-radius: 2px;
-        }
-
-        .collaborators-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 40px;
-            align-items: center;
-            justify-items: center;
-        }
-
-        .collaborator-item {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            width: 100%;
-            text-align: center;
-            border: 1px solid #f0f0f0;
-        }
-
-        .collaborator-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            border-color: #667eea;
-        }
-
-        .collaborator-logo {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #667eea;
-        }
-
-        /* Content Sections */
-        .content-section {
-            padding: 80px 0;
-            display: none;
-        }
-
-        .content-section.active {
-            display: block;
-            animation: slideInRight 0.5s ease-out;
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .content-section:nth-child(even) {
-            background: #f8f9fa;
-        }
-
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-
-        .content-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid #f0f0f0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .content-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .content-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .content-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #2c3e50;
             margin-bottom: 20px;
+            font-weight: 700;
         }
 
-        .content-card p {
-            color: #666;
-            margin-bottom: 25px;
-            line-height: 1.8;
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
         }
 
-        .card-links {
+        .hero-stats {
             display: flex;
-            gap: 12px;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
             flex-wrap: wrap;
         }
 
-        .card-link {
-            padding: 10px 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Collaborators Section */
+        .collaborators {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .collaborators h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 40px;
+        }
+
+        .collaborator-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .collaborator-logo {
+            width: 120px;
+            height: 80px;
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #6c757d;
+            transition: all 0.3s ease;
+        }
+
+        .collaborator-logo:hover {
+            border-color: #3498db;
+            transform: translateY(-3px);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content {
+            background: white;
+            margin: 40px 0;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: #fafafa;
+            border: 1px solid #e9ecef;
+            padding: 30px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
+        }
+
+        .info-card h3 {
+            color: #2c3e50;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .info-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .link-btn {
+            padding: 8px 16px;
+            background: #3498db;
             color: white;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 5px;
             font-size: 0.9rem;
-            font-weight: 600;
+            font-weight: 500;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
-        .card-link:hover {
+        .link-btn:hover {
+            background: #2980b9;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
-        /* Contact Section */
+        /* Contact Grid */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
         }
 
         .contact-card {
             background: white;
-            padding: 35px;
-            border-radius: 15px;
+            border: 2px solid #e9ecef;
+            padding: 30px;
+            border-radius: 10px;
             text-align: center;
             transition: all 0.3s ease;
             text-decoration: none;
             color: #2c3e50;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            border: 1px solid #f0f0f0;
         }
 
         .contact-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-            border-color: #667eea;
+            border-color: #3498db;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.1);
             text-decoration: none;
-            color: #667eea;
-        }
-
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            display: block;
+            color: #3498db;
         }
 
         .contact-card h3 {
             font-size: 1.3rem;
-            font-weight: 700;
             margin-bottom: 10px;
         }
 
@@ -431,313 +314,466 @@
             background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 40px 30px;
-            margin-left: -280px;
+            padding: 30px 20px;
+            margin-top: 60px;
         }
 
         .footer p {
+            margin: 0;
             opacity: 0.9;
-            font-size: 0.95rem;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                width: 250px;
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
             }
 
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .main-content {
-                margin-left: 0;
+            .nav-tabs {
+                justify-content: center;
             }
 
             .hero-content h1 {
                 font-size: 2.5rem;
             }
 
-            .hero-content p {
-                font-size: 1.1rem;
+            .hero-stats {
+                gap: 30px;
             }
 
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
+            .content {
+                padding: 30px 20px;
             }
 
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px;
-            }
-
-            .content-grid {
+            .info-grid {
                 grid-template-columns: 1fr;
             }
 
-            .footer {
-                margin-left: 0;
+            .collaborator-logos {
+                gap: 20px;
+            }
+
+            .collaborator-logo {
+                width: 100px;
+                height: 70px;
+                font-size: 0.8rem;
             }
         }
 
         @media (max-width: 480px) {
-            .hero-section {
-                height: 60vh;
+            .nav-tab {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 60px 20px;
             }
 
             .hero-content h1 {
                 font-size: 2rem;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .collaborators-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-
-            .content-card {
-                padding: 25px;
+            .hero-content p {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Mobile Menu Toggle -->
-    <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
-
-    <!-- Sidebar Navigation -->
-    <nav class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <h1>ERIC</h1>
-            <p>Eureka Research & Innovation Center</p>
+    <!-- Header -->
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span>ERIC</span> - Eureka Research & Innovation Center
+            </div>
+            <div class="nav-tabs">
+                <button class="nav-tab active" onclick="showTab('home')">Home</button>
+                <button class="nav-tab" onclick="showTab('people')">People</button>
+                <button class="nav-tab" onclick="showTab('wings')">Wings</button>
+                <button class="nav-tab" onclick="showTab('publications')">Publications</button>
+                <button class="nav-tab" onclick="showTab('projects')">Projects</button>
+                <button class="nav-tab" onclick="showTab('achievements')">Achievements</button>
+                <button class="nav-tab" onclick="showTab('courses')">Courses</button>
+                <button class="nav-tab" onclick="showTab('contact')">Contact</button>
+            </div>
         </div>
-        <div class="nav-menu">
-            <a href="#" class="nav-item active" onclick="showSection('home')">🏠 Home</a>
-            <a href="#" class="nav-item" onclick="showSection('people')">👥 People</a>
-            <a href="#" class="nav-item" onclick="showSection('wings')">🚀 Wings</a>
-            <a href="#" class="nav-item" onclick="showSection('publications')">📚 Publications</a>
-            <a href="#" class="nav-item" onclick="showSection('projects')">🔬 Projects</a>
-            <a href="#" class="nav-item" onclick="showSection('achievements')">🏆 Achievements</a>
-            <a href="#" class="nav-item" onclick="showSection('courses')">🎓 Courses</a>
-            <a href="#" class="nav-item" onclick="showSection('contact')">📧 Contact</a>
+    </div>
+
+    <!-- Home Tab - Hero Section -->
+    <div id="home" class="tab-content active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Eureka Research & Innovation Center</h1>
+                <p>Empowering the next generation of researchers and innovators through collaborative research, cutting-edge technology, and transformative discoveries that shape the future of science and society.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>150+</h3>
+                        <p>Active Researchers</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Research Projects</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>200+</h3>
+                        <p>Publications</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>25+</h3>
+                        <p>Research Areas</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </nav>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Home Section -->
-        <section id="home" class="content-section active">
-            <!-- Hero Section with Cover Image -->
-            <div class="hero-section">
-                <div class="hero-content">
-                    <h1>Eureka Research & Innovation Center</h1>
-                    <p>Pioneering breakthrough research and fostering innovation through collaborative science, cutting-edge technology, and transformative discoveries that shape tomorrow's world.</p>
-                    <div class="hero-cta">
-                        <a href="#" class="cta-btn primary" onclick="showSection('projects')">Explore Research</a>
-                        <a href="#" class="cta-btn" onclick="showSection('contact')">Join Our Community</a>
-                    </div>
-                </div>
+        <!-- Collaborators Section -->
+        <div class="collaborators">
+            <h2>Our Collaborators & Partners</h2>
+            <div class="collaborator-logos">
+                <div class="collaborator-logo">MIT</div>
+                <div class="collaborator-logo">Stanford</div>
+                <div class="collaborator-logo">Oxford</div>
+                <div class="collaborator-logo">Cambridge</div>
+                <div class="collaborator-logo">Harvard</div>
+                <div class="collaborator-logo">ETH Zurich</div>
+                <div class="collaborator-logo">Google AI</div>
+                <div class="collaborator-logo">Microsoft</div>
             </div>
+        </div>
+    </div>
 
-            <!-- Stats Section -->
-            <div class="stats-section">
-                <div class="stats-container">
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number">200+</span>
-                            <span class="stat-label">Active Researchers</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">75+</span>
-                            <span class="stat-label">Research Projects</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">350+</span>
-                            <span class="stat-label">Publications</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">30+</span>
-                            <span class="stat-label">Research Areas</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Collaborators Section -->
-            <div class="collaborators-section">
-                <div class="section-container">
-                    <h2 class="section-title">Our Prestigious Partners</h2>
-                    <div class="collaborators-grid">
-                        <div class="collaborator-item">
-                            <div class="collaborator-logo">MIT</div>
-                        </div>
-                        <div class="collaborator-item">
-                            <div class="collaborator-logo">Stanford</div>
-                        </div>
-                        <div class="collaborator-item">
-                            <div class="collaborator-logo">Oxford</div>
-                        </div>
-                        <div class="collaborator-item">
-                            <div class="collaborator-logo">Cambridge</div>
-                        </div>
-                        <div class="collaborator-item">
-                            <div class="collaborator-logo">Harvard</div>
-                        </div>
-                        <div class="collaborator-item">
-                            <div class="collaborator-logo">ETH Zurich</div>
-                        </div>
-                        <div class="collaborator-item">
-                            <div class="collaborator-logo">Google Research</div>
-                        </div>
-                        <div class="collaborator-item">
-                            <div class="collaborator-logo">Microsoft AI</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- People Section -->
-        <section id="people" class="content-section">
-            <div class="section-container">
+    <!-- Other Tabs Content -->
+    <div class="container">
+        <!-- People Tab -->
+        <div id="people" class="tab-content">
+            <div class="content">
                 <h2 class="section-title">Our Research Community</h2>
-                <div class="content-grid">
-                    <div class="content-card">
-                        <h3>Distinguished Faculty</h3>
-                        <p>World-renowned professors and researchers leading groundbreaking studies across multiple disciplines. Our faculty brings decades of experience and international recognition, mentoring the next generation of scientific leaders and innovators.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Faculty Profiles</a>
-                            <a href="#" class="card-link">Research Areas</a>
-                            <a href="#" class="card-link">Publications</a>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Faculty Leaders</h3>
+                        <p>Distinguished professors and researchers leading groundbreaking studies across multiple disciplines. Our faculty brings decades of experience and international recognition to guide the next generation of researchers in their academic and professional journey.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Faculty Profiles</a>
+                            <a href="#" class="link-btn">Research Areas</a>
+                            <a href="#" class="link-btn">Publications</a>
                         </div>
                     </div>
-                    <div class="content-card">
+                    <div class="info-card">
                         <h3>Graduate Researchers</h3>
-                        <p>Brilliant PhD and Master's students pursuing cutting-edge research in specialized fields. Our graduate researchers form the backbone of our research community, contributing fresh perspectives, innovative methodologies, and breakthrough discoveries.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Student Directory</a>
-                            <a href="#" class="card-link">Thesis Projects</a>
-                            <a href="#" class="card-link">Mentorship</a>
+                        <p>PhD and Master's students pursuing cutting-edge research in their specialized fields. Our graduate researchers form the backbone of our research community, contributing fresh perspectives, innovative methodologies, and breakthrough discoveries.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Student Directory</a>
+                            <a href="#" class="link-btn">Thesis Projects</a>
+                            <a href="#" class="link-btn">Mentorship Program</a>
                         </div>
                     </div>
-                    <div class="content-card">
-                        <h3>Undergraduate Talent</h3>
-                        <p>Exceptional undergraduate students participating in research projects and gaining invaluable hands-on experience. We believe in nurturing young talent early, providing comprehensive opportunities for research skill development and academic growth.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Join Research</a>
-                            <a href="#" class="card-link">Opportunities</a>
-                            <a href="#" class="card-link">Success Stories</a>
+                    <div class="info-card">
+                        <h3>Undergraduate Contributors</h3>
+                        <p>Talented undergraduate students participating in research projects and gaining valuable hands-on experience. We believe in nurturing young talent early and providing comprehensive opportunities for research skill development.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Join Research</a>
+                            <a href="#" class="link-btn">Opportunities</a>
+                            <a href="#" class="link-btn">Success Stories</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Wings Section -->
-        <section id="wings" class="content-section">
-            <div class="section-container">
+        <!-- Wings Tab -->
+        <div id="wings" class="tab-content">
+            <div class="content">
                 <h2 class="section-title">Research Wings</h2>
-                <div class="content-grid">
-                    <div class="content-card">
-                        <h3>AI & Machine Learning</h3>
-                        <p>Advancing artificial intelligence, deep learning, and machine learning applications across healthcare, finance, autonomous systems, and natural language processing. Our team develops state-of-the-art algorithms and models that push the boundaries of AI capabilities.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Research Papers</a>
-                            <a href="#" class="card-link">Code Repository</a>
-                            <a href="#" class="card-link">Live Demos</a>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>AI & Machine Learning Wing</h3>
+                        <p>Focused on advancing artificial intelligence, deep learning, and machine learning applications across various domains including healthcare, finance, autonomous systems, and natural language processing with state-of-the-art methodologies.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Research Papers</a>
+                            <a href="#" class="link-btn">Code Repository</a>
+                            <a href="#" class="link-btn">Live Demos</a>
                         </div>
                     </div>
-                    <div class="content-card">
-                        <h3>Biomedical Innovation</h3>
-                        <p>Conducting revolutionary research in biotechnology, medical devices, drug discovery, personalized medicine, and computational biology. Our interdisciplinary approach combines cutting-edge technology with medical expertise to improve human health outcomes.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Publications</a>
-                            <a href="#" class="card-link">Lab Protocols</a>
-                            <a href="#" class="card-link">Clinical Trials</a>
+                    <div class="info-card">
+                        <h3>Biomedical Research Wing</h3>
+                        <p>Conducting innovative research in biotechnology, medical devices, drug discovery, personalized medicine, and computational biology to improve human health outcomes and advance medical science through interdisciplinary approaches.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Publications</a>
+                            <a href="#" class="link-btn">Lab Protocols</a>
+                            <a href="#" class="link-btn">Clinical Trials</a>
                         </div>
                     </div>
-                    <div class="content-card">
-                        <h3>Environmental Science</h3>
-                        <p>Addressing climate change, sustainability challenges, and environmental conservation through innovative research. We develop data-driven solutions and technologies for creating a more sustainable, resilient future for our planet and communities.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Research Data</a>
-                            <a href="#" class="card-link">Field Studies</a>
-                            <a href="#" class="card-link">Policy Briefs</a>
+                    <div class="info-card">
+                        <h3>Environmental Science Wing</h3>
+                        <p>Addressing climate change, sustainability challenges, and environmental conservation through interdisciplinary research, innovative technologies, and data-driven solutions for creating a more sustainable and resilient future.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Research Data</a>
+                            <a href="#" class="link-btn">Field Studies</a>
+                            <a href="#" class="link-btn">Policy Briefs</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Publications Section -->
-        <section id="publications" class="content-section">
-            <div class="section-container">
+        <!-- Publications Tab -->
+        <div id="publications" class="tab-content">
+            <div class="content">
                 <h2 class="section-title">Publications & Research Output</h2>
-                <div class="content-grid">
-                    <div class="content-card">
-                        <h3>Journal Publications</h3>
-                        <p>High-impact publications in prestigious international journals, showcasing our community's significant contributions to advancing scientific knowledge, methodology development, and theoretical understanding across diverse research domains and applications.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Journal Papers</a>
-                            <a href="#" class="card-link">Citation Metrics</a>
-                            <a href="#" class="card-link">Open Access</a>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Peer-Reviewed Journal Articles</h3>
+                        <p>High-impact publications in leading international journals, showcasing our community's significant contributions to advancing scientific knowledge, methodology development, and theoretical understanding across diverse research domains.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Journal Papers</a>
+                            <a href="#" class="link-btn">Citation Metrics</a>
+                            <a href="#" class="link-btn">Open Access</a>
                         </div>
                     </div>
-                    <div class="content-card">
+                    <div class="info-card">
                         <h3>Conference Proceedings</h3>
-                        <p>Presentations and papers from leading international conferences, workshops, and symposiums where our researchers share latest findings, engage with global research community, and collaborate on emerging scientific challenges and opportunities.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Conference Papers</a>
-                            <a href="#" class="card-link">Presentations</a>
-                            <a href="#" class="card-link">Poster Sessions</a>
+                        <p>Presentations and papers from prestigious international conferences, workshops, and symposiums where our researchers share their latest findings, methodologies, and engage with the global research community.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Conference Papers</a>
+                            <a href="#" class="link-btn">Presentations</a>
+                            <a href="#" class="link-btn">Poster Sessions</a>
                         </div>
                     </div>
-                    <div class="content-card">
-                        <h3>Books & Reports</h3>
-                        <p>Comprehensive academic books, technical reports, and educational resources authored by our community members, serving as valuable reference materials for students, researchers, and practitioners worldwide in various scientific disciplines.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Book Catalog</a>
-                            <a href="#" class="card-link">Technical Reports</a>
-                            <a href="#" class="card-link">Publisher Links</a>
+                    <div class="info-card">
+                        <h3>Books & Technical Reports</h3>
+                        <p>Comprehensive books, book chapters, and technical reports authored by our community members, serving as valuable educational resources and reference materials for students, researchers, and practitioners worldwide.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Book Catalog</a>
+                            <a href="#" class="link-btn">Technical Reports</a>
+                            <a href="#" class="link-btn">Publisher Links</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Projects Section -->
-        <section id="projects" class="content-section">
-            <div class="section-container">
+        <!-- Projects Tab -->
+        <div id="projects" class="tab-content">
+            <div class="content">
                 <h2 class="section-title">Active Research Projects</h2>
-                <div class="content-grid">
-                    <div class="content-card">
-                        <h3>Funded Research Initiatives</h3>
-                        <p>Large-scale research projects supported by government agencies, private foundations, and industry partners. These initiatives address critical challenges in science and technology with substantial financial backing and comprehensive resource allocation.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Project Details</a>
-                            <a href="#" class="card-link">Source Code</a>
-                            <a href="#" class="card-link">Live Demos</a>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Funded Research Projects</h3>
+                        <p>Large-scale research initiatives supported by government agencies, private foundations, and industry partners, addressing critical challenges in science, technology, and society with substantial financial backing and resources.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Project Details</a>
+                            <a href="#" class="link-btn">Source Code</a>
+                            <a href="#" class="link-btn">Live Demos</a>
                         </div>
                     </div>
-                    <div class="content-card">
-                        <h3>Collaborative Networks</h3>
-                        <p>Cross-disciplinary projects involving multiple research groups, universities, and international institutions. These collaborations tackle complex problems requiring diverse expertise, shared resources, and coordinated scientific efforts across borders.</p>
-                        <div class="card-links">
-                            <a href="#" class="card-link">Collaboration Map</a>
-                            <a href="#" class="card-link">Shared Resources</a>
-                            <a href="#" class="card-link">Joint Publications</a>
+                    <div class="info-card">
+                        <h3>Collaborative Initiatives</h3>
+                        <p>Cross-disciplinary projects involving multiple research groups, universities, and international institutions to tackle complex problems requiring diverse expertise, shared resources, and coordinated efforts.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Collaboration Map</a>
+                            <a href="#" class="link-btn">Shared Resources</a>
+                            <a href="#" class="link-btn">Joint Publications</a>
                         </div>
                     </div>
-                    <div class="content-card">
-                        <h3>Student-Led Innovation</h3>
-                        <p>Independent research projects initiated and led by graduate and undergraduate students, providing opportunities for creative exploration, skill development, and innovative problem-
+                    <div class="info-card">
+                        <h3>Student-Led Projects</h3>
+                        <p>Independent research projects initiated and led by graduate and undergraduate students, providing opportunities for creative exploration, skill development, and innovative problem-solving in a supportive environment.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Project Gallery</a>
+                            <a href="#" class="link-btn">Code & Data</a>
+                            <a href="#" class="link-btn">Prototype Demos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Achievements Tab -->
+        <div id="achievements" class="tab-content">
+            <div class="content">
+                <h2 class="section-title">Community Achievements</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Awards & Recognitions</h3>
+                        <p>Prestigious awards and honors received by our community members for their outstanding contributions to research, innovation, academic excellence, and significant impact on their respective fields and society at large.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Award Details</a>
+                            <a href="#" class="link-btn">Winner Profiles</a>
+                            <a href="#" class="link-btn">Media Coverage</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h3>Patents & Innovations</h3>
+                        <p>Intellectual property and technological innovations developed by our researchers, contributing to scientific advancement, technological progress, and potential commercial applications that benefit society and industry.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Patent Database</a>
+                            <a href="#" class="link-btn">Innovation Showcase</a>
+                            <a href="#" class="link-btn">Technology Transfer</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h3>Community Impact</h3>
+                        <p>Measurable positive impact of our research on society, including policy changes, technological adoptions, healthcare improvements, and enhanced quality of life for communities worldwide through evidence-based solutions.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Impact Stories</a>
+                            <a href="#" class="link-btn">Metrics & Data</a>
+                            <a href="#" class="link-btn">Success Cases</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Courses Tab -->
+        <div id="courses" class="tab-content">
+            <div class="content">
+                <h2 class="section-title">Educational Offerings</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>Research Methodology Courses</h3>
+                        <p>Comprehensive courses covering research design, data analysis, statistical methods, scientific writing, and ethical considerations to equip students with essential research skills and methodological knowledge for successful academic careers.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Course Materials</a>
+                            <a href="#" class="link-btn">Video Lectures</a>
+                            <a href="#" class="link-btn">Interactive Tools</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h3>Specialized Workshops</h3>
+                        <p>Hands-on workshops focusing on cutting-edge tools, techniques, and technologies relevant to various research domains, led by experts and designed to provide practical skills and knowledge for immediate application.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Workshop Schedule</a>
+                            <a href="#" class="link-btn">Tutorial Code</a>
+                            <a href="#" class="link-btn">Practice Exercises</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h3>Mentorship Programs</h3>
+                        <p>Structured mentorship programs pairing experienced researchers with students and early-career researchers to provide personalized guidance, career development support, and professional networking opportunities.</p>
+                        <div class="links">
+                            <a href="#" class="link-btn">Program Information</a>
+                            <a href="#" class="link-btn">Mentor Network</a>
+                            <a href="#" class="link-btn">Success Stories</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Tab -->
+        <div id="contact" class="tab-content">
+            <div class="content">
+                <h2 class="section-title">Connect With Us</h2>
+                <div class="contact-grid">
+                    <a href="mailto:info@eric-research.org" class="contact-card">
+                        <h3>📧 Email</h3>
+                        <p>info@eric-research.org</p>
+                    </a>
+                    <a href="https://linkedin.com/company/eric-research" class="contact-card">
+                        <h3>💼 LinkedIn</h3>
+                        <p>Professional Network</p>
+                    </a>
+                    <a href="https://github.com/eric-research" class="contact-card">
+                        <h3>💻 GitHub</h3>
+                        <p>Open Source Projects</p>
+                    </a>
+                    <a href="https://twitter.com/eric_research" class="contact-card">
+                        <h3>🐦 Twitter</h3>
+                        <p>Latest Updates & News</p>
+                    </a>
+                    <a href="https://discord.gg/eric-research" class="contact-card">
+                        <h3>💬 Discord</h3>
+                        <p>Community Discussion</p>
+                    </a>
+                    <a href="https://youtube.com/c/eric-research" class="contact-card">
+                        <h3>📺 YouTube</h3>
+                        <p>Educational Content</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 ERIC - Eureka Research & Innovation Center. All rights reserved.</p>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+
+            // Scroll to top for non-home tabs
+            if (tabName !== 'home') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Add smooth animations and interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stats on scroll
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all info cards
+            document.querySelectorAll('.info-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            // Add click animation to buttons
+            document.querySelectorAll('.link-btn, .nav-tab').forEach(button => {
+                button.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+
+            // Smooth hover effects for collaborator logos
+            document.querySelectorAll('.collaborator-logo').forEach(logo => {
+                logo.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                logo.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
