@@ -434,6 +434,26 @@
             font-size: 0.9rem;
         }
 
+        .paper-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .paper-link:hover {
+            color: #4c51bf;
+            text-decoration: underline;
+        }
+        
+        .paper-link::after {
+            content: " →";
+            margin-left: 0.25rem;
+        }
+
         /* Events Section */
         .events-container {
             display: grid;
@@ -656,7 +676,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                     <i class="fas fa-network-wired"></i> MINDS
+                     <i class="fas fa-lightbulb"></i> MINDS
                 </div>
                 <nav class="nav-tabs">
                     <button class="nav-tab active" onclick="showSection('home')">
@@ -1018,38 +1038,42 @@
         <section id="publications" class="section">
             <div class="container">
                 <div class="content-section">
-                    <h2>Recent Publications</h2>
+                    <h2>Publications</h2>
                   <!--  <p>Discover our latest research contributions and scholarly publications that are advancing knowledge in various fields.</p> -->
                     
                     <div class="publication-item">
-                        <h4>Machine Learning Approaches in Healthcare Diagnostics</h4>
-                        <p>Published in Journal of Medical AI, 2025. Authors: Dr. James Smith, Alex Rodriguez</p>
+                        <h4>Paper Titile</h4>
+                        <p>Published in Journal/Conference Name. Authors: Dr. X, Y, Z</p>
+                        <a href="#" class="paper-link">See Paper</a>
                     </div>
                     
                     <div class="publication-item">
-                        <h4>Sustainable Energy Solutions for Urban Environments</h4>
-                        <p>Published in Environmental Technology Review, 2025. Authors: Dr. Sarah Ahmed, Emma Stevens</p>
+                        <h4>Paper Titile</h4>
+                        <p>Published in Journal/Conference Name. Authors: Dr. X, Y, Z</p>
+                        <a href="#" class="paper-link">See Paper</a>
                     </div>
                     
                     <div class="publication-item">
-                        <h4>Computational Models for Molecular Interactions</h4>
-                        <p>Published in Computational Biology Journal, 2024. Authors: Dr. Priya Mehta, Maya Johnson</p>
+                        <h4>Paper Titile</h4>
+                        <p>Published in Journal/Conference Name. Authors: Dr. X, Y, Z</p>
+                        <a href="#" class="paper-link">See Paper</a>
                     </div>
                     
                     <div class="publication-item">
-                        <h4>Social Impact of Digital Innovation in Education</h4>
-                        <p>Published in Technology & Society Quarterly, 2024. Authors: Dr. Nabeel Mohammed, Kevin Li</p>
+                        <h4>Paper Titile</h4>
+                        <p>Published in Journal/Conference Name. Authors: Dr. X, Y, Z</p>
+                        <a href="#" class="paper-link">See Paper</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Blogs Section -->
-        <section id="blogs" class="section">
+   <!--     <section id="blogs" class="section">
             <div class="container">
                 <div class="content-section">
                     <h2>Research Insights & Blogs</h2>
-               <!--     <p>Stay updated with our latest research insights, methodologies, and thought leadership pieces from our community members.</p>  -->
+                   <p>Stay updated with our latest research insights, methodologies, and thought leadership pieces from our community members.</p>  
                     
                     <div class="blog-item">
                         <h4>Getting Started with Research: A Student's Guide</h4>
@@ -1072,7 +1096,9 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section>  
+        
+-->
 
         <!-- Contact Section -->
         <section id="contact" class="section">
@@ -1107,8 +1133,8 @@
                                 <div class="contact-icon">📍</div>
                                 <div>
                                     <strong>Address</strong><br>
-                                    123 Research Boulevard<br>
-                                    Innovation District, ID 12345
+                                    123 Road<br>
+                                    North South University, Dhaka
                                 </div>
                             </div>
                             
