@@ -110,35 +110,52 @@
             background-size: cover;
         }
 
+        .hero-content {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+
+        .hero-main {
+            flex: 2;
+            text-align: left;
+        }
+
+        .news-sidebar {
+            flex: 1;
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             color: #4a5568;
+            text-align: center;
         }
 
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             color: #718096;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 100%;
         }
 
         .community-photo {
-            max-width: 800px;
-            height: 400px;
+            width: 100%;
+            height: auto;
             margin: 2rem auto;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+        }
+
+        .community-photo img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         .collaborators {
@@ -184,52 +201,38 @@
 
         /* News Section */
         .news-section {
-            margin: 4rem auto;
-            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .news-section h2 {
             color: #4a5568;
             margin-bottom: 1.5rem;
+            font-size: 1.5rem;
             text-align: center;
-            font-size: 2rem;
         }
 
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .news-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .news-image {
-            height: 180px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        .news-list {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .news-content {
-            padding: 1.5rem;
+        .news-item {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            transition: all 0.3s ease;
+            border-left: 3px solid #667eea;
+        }
+
+        .news-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         .news-date {
             color: #667eea;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             margin-bottom: 0.5rem;
             display: flex;
             align-items: center;
@@ -239,14 +242,15 @@
             margin-right: 5px;
         }
 
-        .news-content h3 {
-            margin-bottom: 0.8rem;
+        .news-item h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
             color: #4a5568;
         }
 
-        .news-content p {
+        .news-item p {
             color: #718096;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         /* Content Sections */
@@ -608,8 +612,12 @@
                 gap: 1rem;
             }
             
-            .community-photo {
-                height: 250px;
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .news-sidebar {
+                margin-top: 2rem;
             }
         }
     </style>
@@ -653,88 +661,81 @@
         <section id="home" class="section active">
             <div class="hero">
                 <div class="container">
-                    <h1>MINDS Research Community</h1>
-                    <p>MINDS-Minds in Innovation, Networking, Development, and Sustainability is building a vibrant community of researchers, students, and innovators dedicated to advancing knowledge and fostering breakthrough discoveries in various fields of study.</p>
+                    <h1>MINDS-Minds in Innovation, Networking, Development, and Sustainability</h1>
                     
                     <div class="community-photo">
-                        <!--ERIC Research Community - Annual Conference 2024-->
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/800px-Google_2015_logo.svg.png" alt="Google Research">
+                        <img src="com.png" alt="ERIC Research Community">
                     </div>
                     
-                    <div class="collaborators">
-                        <h3>Our Collaborators & Partners</h3>
-                        <div class="logo-grid">
-                            <div class="partner-logo">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/800px-Google_2015_logo.svg.png" alt="Google Research">
-                            </div>
-                            <div class="partner-logo">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_logo_%282012%29.svg/1024px-Microsoft_logo_%282012%29.svg.png" alt="Microsoft Research">
-                            </div>
-                            <div class="partner-logo">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/MIT_logo.svg/800px-MIT_logo.svg.png" alt="MIT">
-                            </div>
-                            <div class="partner-logo">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Stanford_University_logo_%282003%29.svg/800px-Stanford_University_logo_%282003%29.svg.png" alt="Stanford University">
-                            </div>
-                            <div class="partner-logo">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/IBM_logo.svg/800px-IBM_logo.svg.png" alt="IBM Research">
-                            </div>
-                            <div class="partner-logo">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/NVIDIA_logo.svg/800px-NVIDIA_logo.svg.png" alt="NVIDIA">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- News Section -->
-            <div class="container">
-                <div class="news-section">
-                    <h2><i class="fas fa-newspaper"></i> Community News</h2>
-                    <div class="news-grid">
-                        <div class="news-card">
-                            <div class="news-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                                Research Grant Award
-                            </div>
-                            <div class="news-content">
-                                <div class="news-date">
-                                    <i class="far fa-calendar"></i> June 15, 2025
+                    <div class="hero-content">
+                        <div class="hero-main">
+                            <p>Building a vibrant community of researchers, students, and innovators dedicated to advancing knowledge and fostering breakthrough discoveries in various fields of study.</p>
+                            
+                            <div class="collaborators">
+                                <h3>Our Collaborators & Partners</h3>
+                                <div class="logo-grid">
+                                    <div class="partner-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/800px-Google_2015_logo.svg.png" alt="Google Research">
+                                    </div>
+                                    <div class="partner-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_logo_%282012%29.svg/1024px-Microsoft_logo_%282012%29.svg.png" alt="Microsoft Research">
+                                    </div>
+                                    <div class="partner-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/MIT_logo.svg/800px-MIT_logo.svg.png" alt="MIT">
+                                    </div>
+                                    <div class="partner-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Stanford_University_logo_%282003%29.svg/800px-Stanford_University_logo_%282003%29.svg.png" alt="Stanford University">
+                                    </div>
+                                    <div class="partner-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/IBM_logo.svg/800px-IBM_logo.svg.png" alt="IBM Research">
+                                    </div>
+                                    <div class="partner-logo">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/NVIDIA_logo.svg/800px-NVIDIA_logo.svg.png" alt="NVIDIA">
+                                    </div>
                                 </div>
-                                <h3>ERC Awards $2M Grant for AI Research</h3>
-                                <p>Our team received a prestigious grant to advance research in ethical AI systems for healthcare applications.</p>
                             </div>
                         </div>
                         
-                        <div class="news-card">
-                            <div class="news-image" style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);">
-                                Conference Announcement
-                            </div>
-                            <div class="news-content">
-                                <div class="news-date">
-                                    <i class="far fa-calendar"></i> May 28, 2025
+                        <div class="news-sidebar">
+                            <h2><i class="fas fa-newspaper"></i> Community News</h2>
+                            <div class="news-list">
+                                <div class="news-item">
+                                    <div class="news-date">
+                                        <i class="far fa-calendar"></i> June 15, 2025
+                                    </div>
+                                    <h3>ERC Awards $2M Grant for AI Research</h3>
+                                    <p>Our team received a prestigious grant to advance research in ethical AI systems for healthcare applications.</p>
                                 </div>
-                                <h3>Annual Research Symposium 2025</h3>
-                                <p>Join us on September 12-14 for our flagship event featuring keynote speakers from leading tech companies and research institutions.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-image" style="background: linear-gradient(135deg, #ed64a6 0%, #d53f8c 100%);">
-                                Student Achievement
-                            </div>
-                            <div class="news-content">
-                                <div class="news-date">
-                                    <i class="far fa-calendar"></i> April 30, 2025
+                                
+                                <div class="news-item">
+                                    <div class="news-date">
+                                        <i class="far fa-calendar"></i> May 28, 2025
+                                    </div>
+                                    <h3>Annual Research Symposium 2025</h3>
+                                    <p>Join us on September 12-14 for our flagship event featuring keynote speakers from leading tech companies.</p>
                                 </div>
-                                <h3>Student Team Wins Innovation Challenge</h3>
-                                <p>Our undergraduate researchers took first place in the national innovation competition with their sustainable energy solution.</p>
+                                
+                                <div class="news-item">
+                                    <div class="news-date">
+                                        <i class="far fa-calendar"></i> April 30, 2025
+                                    </div>
+                                    <h3>Student Team Wins Innovation Challenge</h3>
+                                    <p>Our undergraduate researchers took first place in the national innovation competition.</p>
+                                </div>
+                                
+                                <div class="news-item">
+                                    <div class="news-date">
+                                        <i class="far fa-calendar"></i> March 15, 2025
+                                    </div>
+                                    <h3>New Research Partnership Announced</h3>
+                                    <p>Collaboration with industry leaders to develop sustainable energy solutions.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- People Section -->
         <section id="people" class="section">
             <div class="container">
