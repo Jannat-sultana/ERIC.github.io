@@ -278,7 +278,7 @@
             margin-right: auto;
         }
 
-        /* People Section */
+                /* People Categories */
         .people-categories {
             display: flex;
             justify-content: center;
@@ -294,14 +294,18 @@
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 500;
+            color: #4a5568;
         }
 
         .people-category.active, .people-category:hover {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border-color: transparent;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
         }
 
+        /* People Grid */
         .people-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -310,35 +314,38 @@
         }
 
         .person-card {
-            background: #f7fafc;
+            background: white;
             padding: 1.5rem;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
+            border: 1px solid #edf2f7;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
         }
 
         .person-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.2);
+            border-color: #cbd5e0;
         }
 
         .person-avatar {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 1.2rem;
+            width: 140px;
+            height: 140px;
+            margin: 0 auto 1.5rem;
             border-radius: 50%;
             overflow: hidden;
-            border: 3px solid white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: bold;
+            border: 4px solid white;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            background: #f7fafc;
+        }
+
+        .person-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .person-info {
@@ -346,39 +353,61 @@
         }
 
         .person-info h4 {
-            color: #4a5568;
-            margin-bottom: 0.3rem;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
         }
 
         .person-info p {
-            color: #667eea;
+            color: #4a5568;
             font-weight: 500;
             margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .person-info .position {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 1rem;
         }
 
         .person-links {
             display: flex;
             justify-content: center;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .person-link {
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: #e2e8f0;
+            background: #edf2f7;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #4a5568;
             transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
 
         .person-link:hover {
             background: #667eea;
             color: white;
-            transform: scale(1.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .person-link.email:hover {
+            background: #dd4b39;
+        }
+
+        .person-link.scholar:hover {
+            background: #4285f4;
+        }
+
+        .person-link.linkedin:hover {
+            background: #0a66c2;
         }
 
         /* Publications & Blogs */
@@ -730,128 +759,125 @@
         </section>
         
         <!-- People Section -->
-        <section id="people" class="section">
-            <div class="container">
-                <div class="content-section">
-                    <h2>Our Research Community</h2>
-                    <p>Meet the dedicated researchers, faculty members, and students who make up our vibrant research community.</p>
-                    
-                    <div class="people-categories">
-                        <!--<div class="people-category active" onclick="filterPeople('all')">All Members</div>-->
-                        <div class="people-category" onclick="filterPeople('faculty')">Faculty Members</div>
-                        <div class="people-category" onclick="filterPeople('researchers')">Senior Researchers</div>
-                        <div class="people-category" onclick="filterPeople('assistants')">Research Assistants</div>
-                        <div class="people-category" onclick="filterPeople('members')">Members</div>
+    <section id="people" class="section">
+        <div class="container">
+            <div class="content-section">
+                <h2>Our Research Community</h2>
+                <p>Meet the dedicated researchers, faculty members, and students who make up our vibrant research community.</p>
+                
+                <div class="people-categories">
+                    <div class="people-category active" onclick="filterPeople('all')">All Members</div>
+                    <div class="people-category" onclick="filterPeople('faculty')">Faculty Members</div>
+                    <div class="people-category" onclick="filterPeople('researchers')">Senior Researchers</div>
+                    <div class="people-category" onclick="filterPeople('assistants')">Research Assistants</div>
+                </div>
+                
+                <div class="people-grid">
+                    <div class="person-card" data-category="faculty">
+                        <span class="category-label">Faculty</span>
+                        <div class="person-avatar">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Dr. Nabeel Mohammed">
+                        </div>
+                        <div class="person-info">
+                            <h4>Dr. Nabeel Mohammed</h4>
+                            <p class="position">Principal Investigator</p>
+                            <p>Computational Sciences</p>
+                        </div>
+                        <div class="person-links">
+                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="person-link scholar"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                     
-                    <div class="people-grid">
-                        <div class="person-card" data-category="faculty">
-                            <div class="person-avatar">DR</div>
-                            <div class="person-info">
-                                <h4>Dr. Nabeel Mohammed</h4>
-                                <p>Principal Investigator</p>
-                                <p>Computational Sciences</p>
-                            </div>
-                            <div class="person-links">
-                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
-                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                    <div class="person-card" data-category="faculty">
+                        <span class="category-label">Faculty</span>
+                        <div class="person-avatar">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Dr. Sarah Johnson">
                         </div>
-                        
-                        <div class="person-card" data-category="faculty">
-                            <div class="person-avatar">PM</div>
-                            <div class="person-info">
-                                <h4>Dr. ABC</h4>
-                                <p>Senior Faculty</p>
-                                <p>XYZ</p>
-                            </div>
-                            <div class="person-links">
-                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
-                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                        <div class="person-info">
+                            <h4>Dr. Sarah Johnson</h4>
+                            <p class="position">Senior Faculty</p>
+                            <p>Machine Learning</p>
                         </div>
-                        
-                        <div class="person-card" data-category="researchers">
-                            <div class="person-avatar">JS</div>
-                            <div class="person-info">
-                                <h4>Dr. Smith</h4>
-                                <p>Senior Researcher</p>
-                                <p>AI & Machine Learning</p>
-                            </div>
-                            <div class="person-links">
-                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
-                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                        <div class="person-links">
+                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="person-link scholar"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
                         </div>
-                        
-                        <div class="person-card" data-category="researchers">
-                            <div class="person-avatar">SA</div>
-                            <div class="person-info">
-                                <h4>Dr. S Ahmed</h4>
-                                <p>Senior Researcher</p>
-                                <p>Environmental Sciences</p>
-                            </div>
-                            <div class="person-links">
-                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
-                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                    </div>
+                    
+                    <div class="person-card" data-category="researchers">
+                        <span class="category-label">Researcher</span>
+                        <div class="person-avatar">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Dr. Michael Smith">
                         </div>
-                        
-                        <div class="person-card" data-category="assistants">
-                            <div class="person-avatar">AR</div>
-                            <div class="person-info">
-                                <h4>ABC</h4>
-                                <p>Research Assistant</p>
-                                <p>Data Science</p>
-                            </div>
-                            <div class="person-links">
-                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
-                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                        <div class="person-info">
+                            <h4>Dr. Michael Smith</h4>
+                            <p class="position">Senior Researcher</p>
+                            <p>AI & Machine Learning</p>
                         </div>
-                        
-                        <div class="person-card" data-category="assistants">
-                            <div class="person-avatar">MJ</div>
-                            <div class="person-info">
-                                <h4>ABC</h4>
-                                <p>Research Assistant</p>
-                                <p>XYZ</p>
-                            </div>
-                            <div class="person-links">
-                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
-                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                        <div class="person-links">
+                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="person-link scholar"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
                         </div>
-                        
-                        <div class="person-card" data-category="members">
-                            <div class="person-avatar">KL</div>
-                            <div class="person-info">
-                                <h4>ABC</h4>
-                                <p>PhD Candidate</p>
-                                <p>Computer Vision</p>
-                            </div>
-                            <div class="person-links">
-                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
-                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                    </div>
+                    
+                    <div class="person-card" data-category="researchers">
+                        <span class="category-label">Researcher</span>
+                        <div class="person-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Dr. Robert Chen">
                         </div>
-                        
-                        <div class="person-card" data-category="members">
-                            <div class="person-avatar">ES</div>
-                            <div class="person-info">
-                                <h4>ABC</h4>
-                                <p>Masters Student</p>
-                                <p>XYZ</p>
-                            </div>
-                            <div class="person-links">
-                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
-                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                        <div class="person-info">
+                            <h4>Dr. Robert Chen</h4>
+                            <p class="position">Senior Researcher</p>
+                            <p>Environmental Sciences</p>
+                        </div>
+                        <div class="person-links">
+                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="person-link scholar"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card" data-category="assistants">
+                        <span class="category-label">Assistant</span>
+                        <div class="person-avatar">
+                            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Emma Wilson">
+                        </div>
+                        <div class="person-info">
+                            <h4>Emma Wilson</h4>
+                            <p class="position">Research Assistant</p>
+                            <p>Data Science</p>
+                        </div>
+                        <div class="person-links">
+                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="person-link scholar"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="person-card" data-category="assistants">
+                        <span class="category-label">Assistant</span>
+                        <div class="person-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Sophia Rodriguez">
+                        </div>
+                        <div class="person-info">
+                            <h4>Sophia Rodriguez</h4>
+                            <p class="position">Research Assistant</p>
+                            <p>Bioinformatics</p>
+                        </div>
+                        <div class="person-links">
+                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" class="person-link scholar"><i class="fab fa-google-scholar"></i></a>
+                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
         <!-- Events Section -->
         <section id="events" class="section">
