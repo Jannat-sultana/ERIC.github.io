@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ERIC - Eureka Research & Innovation Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -45,11 +46,17 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
         }
 
         .nav-tabs {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
         }
 
         .nav-tab {
@@ -61,6 +68,12 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-tab i {
+            margin-right: 8px;
         }
 
         .nav-tab:hover, .nav-tab.active {
@@ -81,6 +94,12 @@
 
         .section.active {
             display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Home Section */
@@ -106,6 +125,22 @@
             margin-right: auto;
         }
 
+        .community-photo {
+            max-width: 800px;
+            height: 400px;
+            margin: 2rem auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
         .collaborators {
             margin-top: 3rem;
             padding: 2rem;
@@ -117,6 +152,7 @@
         .collaborators h3 {
             margin-bottom: 1.5rem;
             color: #4a5568;
+            text-align: center;
         }
 
         .logo-grid {
@@ -127,21 +163,90 @@
         }
 
         .partner-logo {
-            height: 80px;
-            background: #f7fafc;
-            border: 2px dashed #e2e8f0;
-            border-radius: 8px;
+            height: 100px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #a0aec0;
-            font-size: 0.9rem;
+        }
+
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+            filter: grayscale(100%);
             transition: all 0.3s ease;
         }
 
-        .partner-logo:hover {
-            border-color: #667eea;
+        .partner-logo:hover img {
+            filter: grayscale(0);
+            transform: scale(1.05);
+        }
+
+        /* News Section */
+        .news-section {
+            margin: 4rem auto;
+            max-width: 1200px;
+        }
+
+        .news-section h2 {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-image {
+            height: 180px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
             color: #667eea;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .news-date i {
+            margin-right: 5px;
+        }
+
+        .news-content h3 {
+            margin-bottom: 0.8rem;
+            color: #4a5568;
+        }
+
+        .news-content p {
+            color: #718096;
+            font-size: 0.95rem;
         }
 
         /* Content Sections */
@@ -157,14 +262,42 @@
             color: #4a5568;
             margin-bottom: 1rem;
             font-size: 2rem;
+            text-align: center;
         }
 
         .content-section p {
             color: #718096;
             margin-bottom: 1rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* People Section */
+        .people-categories {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .people-category {
+            padding: 0.7rem 1.5rem;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .people-category.active, .people-category:hover {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-color: transparent;
+        }
+
         .people-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -178,24 +311,70 @@
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
         .person-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
 
         .person-avatar {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1.2rem;
             border-radius: 50%;
-            margin: 0 auto 1rem;
+            overflow: hidden;
+            border: 3px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: bold;
+        }
+
+        .person-info {
+            margin: 1rem 0;
+        }
+
+        .person-info h4 {
+            color: #4a5568;
+            margin-bottom: 0.3rem;
+        }
+
+        .person-info p {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .person-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .person-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            transition: all 0.3s ease;
+        }
+
+        .person-link:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.1);
         }
 
         /* Publications & Blogs */
@@ -205,6 +384,11 @@
             margin: 1rem 0;
             border-radius: 10px;
             border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .publication-item:hover, .blog-item:hover {
+            transform: translateX(5px);
         }
 
         .publication-item h4, .blog-item h4 {
@@ -215,6 +399,98 @@
         .publication-item p, .blog-item p {
             color: #718096;
             font-size: 0.9rem;
+        }
+
+        /* Events Section */
+        .events-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .events-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .events-column h3 {
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .events-column h3 i {
+            margin-right: 10px;
+            color: #667eea;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .event-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .event-header {
+            padding: 1.2rem;
+            background: #f8fafc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-date {
+            background: #667eea;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .event-type {
+            background: #e9d8fd;
+            color: #6b46c1;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .event-content {
+            padding: 1.5rem;
+        }
+
+        .event-content h4 {
+            color: #4a5568;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        .event-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        .event-detail i {
+            margin-right: 10px;
+            width: 20px;
+            color: #667eea;
         }
 
         /* Footer */
@@ -311,10 +587,12 @@
         .submit-btn:hover {
             transform: translateY(-2px);
         }
+        
         @media (max-width: 768px) {
             .nav-tabs {
                 flex-wrap: wrap;
-                gap: 1rem;
+                gap: 0.8rem;
+                justify-content: center;
             }
             
             .hero h1 {
@@ -324,6 +602,15 @@
             .hero p {
                 font-size: 1rem;
             }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .community-photo {
+                height: 250px;
+            }
         }
     </style>
 </head>
@@ -331,14 +618,31 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">ERIC</div>
+                <div class="logo">
+                    <i class="fas fa-flask"></i> ERIC
+                </div>
                 <nav class="nav-tabs">
-                    <button class="nav-tab active" onclick="showSection('home')">Home</button>
-                    <button class="nav-tab" onclick="showSection('people')">People</button>
-                    <button class="nav-tab" onclick="showSection('wings')">Wings</button>
-                    <button class="nav-tab" onclick="showSection('publications')">Publications</button>
-                    <button class="nav-tab" onclick="showSection('blogs')">Blogs</button>
-                    <button class="nav-tab" onclick="showSection('contact')">Contact</button>
+                    <button class="nav-tab active" onclick="showSection('home')">
+                        <i class="fas fa-home"></i> Home
+                    </button>
+                    <button class="nav-tab" onclick="showSection('people')">
+                        <i class="fas fa-users"></i> People
+                    </button>
+                    <button class="nav-tab" onclick="showSection('wings')">
+                        <i class="fas fa-cogs"></i> Wings
+                    </button>
+                    <button class="nav-tab" onclick="showSection('events')">
+                        <i class="fas fa-calendar-alt"></i> Events
+                    </button>
+                    <button class="nav-tab" onclick="showSection('publications')">
+                        <i class="fas fa-book"></i> Publications
+                    </button>
+                    <button class="nav-tab" onclick="showSection('blogs')">
+                        <i class="fas fa-blog"></i> Blogs
+                    </button>
+                    <button class="nav-tab" onclick="showSection('contact')">
+                        <i class="fas fa-envelope"></i> Contact
+                    </button>
                 </nav>
             </div>
         </div>
@@ -352,17 +656,398 @@
                     <h1>MINDS-Minds in Innovation, Networking, Development, and Sustainability</h1>
                     <p>Building a vibrant community of researchers, students, and innovators dedicated to advancing knowledge and fostering breakthrough discoveries in various fields of study.</p>
                     
+                    <div class="community-photo">
+                        ERIC Research Community - Annual Conference 2024
+                    </div>
+                    
                     <div class="collaborators">
                         <h3>Our Collaborators & Partners</h3>
                         <div class="logo-grid">
-                            <div class="partner-logo">University Partner</div>
-                            <div class="partner-logo">Research Institute</div>
-                            <div class="partner-logo">Industry Partner</div>
-                            <div class="partner-logo">Innovation Hub</div>
-                            <div class="partner-logo">Tech Company</div>
-                            <div class="partner-logo">Academic Alliance</div>
+                            <div class="partner-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/800px-Google_2015_logo.svg.png" alt="Google Research">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_logo_%282012%29.svg/1024px-Microsoft_logo_%282012%29.svg.png" alt="Microsoft Research">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/MIT_logo.svg/800px-MIT_logo.svg.png" alt="MIT">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Stanford_University_logo_%282003%29.svg/800px-Stanford_University_logo_%282003%29.svg.png" alt="Stanford University">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/IBM_logo.svg/800px-IBM_logo.svg.png" alt="IBM Research">
+                            </div>
+                            <div class="partner-logo">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/NVIDIA_logo.svg/800px-NVIDIA_logo.svg.png" alt="NVIDIA">
+                            </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- News Section -->
+            <div class="container">
+                <div class="news-section">
+                    <h2><i class="fas fa-newspaper"></i> Community News</h2>
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <div class="news-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                Research Grant Award
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">
+                                    <i class="far fa-calendar"></i> June 15, 2025
+                                </div>
+                                <h3>ERC Awards $2M Grant for AI Research</h3>
+                                <p>Our team received a prestigious grant to advance research in ethical AI systems for healthcare applications.</p>
+                            </div>
                         </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);">
+                                Conference Announcement
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">
+                                    <i class="far fa-calendar"></i> May 28, 2025
+                                </div>
+                                <h3>Annual Research Symposium 2025</h3>
+                                <p>Join us on September 12-14 for our flagship event featuring keynote speakers from leading tech companies and research institutions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-image" style="background: linear-gradient(135deg, #ed64a6 0%, #d53f8c 100%);">
+                                Student Achievement
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">
+                                    <i class="far fa-calendar"></i> April 30, 2025
+                                </div>
+                                <h3>Student Team Wins Innovation Challenge</h3>
+                                <p>Our undergraduate researchers took first place in the national innovation competition with their sustainable energy solution.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- People Section -->
+        <section id="people" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Our Research Community</h2>
+                    <p>Meet the dedicated researchers, faculty members, and students who make up our vibrant research community.</p>
+                    
+                    <div class="people-categories">
+                        <div class="people-category active" onclick="filterPeople('all')">All Members</div>
+                        <div class="people-category" onclick="filterPeople('faculty')">Faculty Members</div>
+                        <div class="people-category" onclick="filterPeople('researchers')">Senior Researchers</div>
+                        <div class="people-category" onclick="filterPeople('assistants')">Research Assistants</div>
+                        <div class="people-category" onclick="filterPeople('members')">Members</div>
+                    </div>
+                    
+                    <div class="people-grid">
+                        <div class="person-card" data-category="faculty">
+                            <div class="person-avatar">DR</div>
+                            <div class="person-info">
+                                <h4>Dr. Nabeel Mohammed</h4>
+                                <p>Principal Investigator</p>
+                                <p>Computational Sciences</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
+                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="person-card" data-category="faculty">
+                            <div class="person-avatar">PM</div>
+                            <div class="person-info">
+                                <h4>Dr. Priya Mehta</h4>
+                                <p>Senior Faculty</p>
+                                <p>Biotechnology</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
+                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="person-card" data-category="researchers">
+                            <div class="person-avatar">JS</div>
+                            <div class="person-info">
+                                <h4>Dr. James Smith</h4>
+                                <p>Senior Researcher</p>
+                                <p>AI & Machine Learning</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
+                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="person-card" data-category="researchers">
+                            <div class="person-avatar">SA</div>
+                            <div class="person-info">
+                                <h4>Dr. Sarah Ahmed</h4>
+                                <p>Senior Researcher</p>
+                                <p>Environmental Sciences</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
+                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="person-card" data-category="assistants">
+                            <div class="person-avatar">AR</div>
+                            <div class="person-info">
+                                <h4>Alex Rodriguez</h4>
+                                <p>Research Assistant</p>
+                                <p>Data Science</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
+                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="person-card" data-category="assistants">
+                            <div class="person-avatar">MJ</div>
+                            <div class="person-info">
+                                <h4>Maya Johnson</h4>
+                                <p>Research Assistant</p>
+                                <p>Bioinformatics</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
+                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="person-card" data-category="members">
+                            <div class="person-avatar">KL</div>
+                            <div class="person-info">
+                                <h4>Kevin Li</h4>
+                                <p>PhD Candidate</p>
+                                <p>Computer Vision</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
+                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        
+                        <div class="person-card" data-category="members">
+                            <div class="person-avatar">ES</div>
+                            <div class="person-info">
+                                <h4>Emma Stevens</h4>
+                                <p>Masters Student</p>
+                                <p>Renewable Energy</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link"><i class="fab fa-google-scholar"></i></a>
+                                <a href="#" class="person-link"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Events & Conferences</h2>
+                    <p>Join us for upcoming events and explore our past conferences and workshops.</p>
+                    
+                    <div class="events-container">
+                        <div class="events-column">
+                            <h3><i class="fas fa-calendar-plus"></i> Upcoming Events</h3>
+                            
+                            <div class="event-card">
+                                <div class="event-header">
+                                    <div class="event-date">July 25, 2025</div>
+                                    <div class="event-type">Workshop</div>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Introduction to Deep Learning</h4>
+                                    <div class="event-detail">
+                                        <i class="fas fa-clock"></i> 10:00 AM - 4:00 PM
+                                    </div>
+                                    <div class="event-detail">
+                                        <i class="fas fa-map-marker-alt"></i> ERIC Innovation Lab, Room 305
+                                    </div>
+                                    <div class="event-detail">
+                                        <i class="fas fa-user"></i> Dr. James Smith
+                                    </div>
+                                    <p>Hands-on workshop covering fundamental deep learning concepts with practical implementation using TensorFlow.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="event-card">
+                                <div class="event-header">
+                                    <div class="event-date">August 12-14, 2025</div>
+                                    <div class="event-type">Conference</div>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Annual Sustainability Summit</h4>
+                                    <div class="event-detail">
+                                        <i class="fas fa-clock"></i> 9:00 AM - 5:00 PM Daily
+                                    </div>
+                                    <div class="event-detail">
+                                        <i class="fas fa-map-marker-alt"></i> Grand Convention Center
+                                    </div>
+                                    <div class="event-detail">
+                                        <i class="fas fa-user"></i> Keynote: Dr. Priya Mehta
+                                    </div>
+                                    <p>Join researchers, policymakers, and industry leaders to discuss innovations in sustainable technologies and climate solutions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="events-column">
+                            <h3><i class="fas fa-history"></i> Past Events</h3>
+                            
+                            <div class="event-card">
+                                <div class="event-header">
+                                    <div class="event-date">May 20, 2025</div>
+                                    <div class="event-type">Seminar</div>
+                                </div>
+                                <div class="event-content">
+                                    <h4>AI Ethics in Research</h4>
+                                    <div class="event-detail">
+                                        <i class="fas fa-clock"></i> 2:00 PM - 4:00 PM
+                                    </div>
+                                    <div class="event-detail">
+                                        <i class="fas fa-map-marker-alt"></i> ERIC Auditorium
+                                    </div>
+                                    <div class="event-detail">
+                                        <i class="fas fa-user"></i> Dr. Nabeel Mohammed
+                                    </div>
+                                    <p>Exploring ethical considerations in AI research and development, with case studies and discussion.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="event-card">
+                                <div class="event-header">
+                                    <div class="event-date">April 5-7, 2025</div>
+                                    <div class="event-type">Conference</div>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Biotech Innovation Forum</h4>
+                                    <div class="event-detail">
+                                        <i class="fas fa-clock"></i> Conference Hall
+                                    </div>
+                                    <div class="event-detail">
+                                        <i class="fas fa-map-marker-alt"></i> Biotechnology Campus
+                                    </div>
+                                    <div class="event-detail">
+                                        <i class="fas fa-user"></i> Featured: Dr. Sarah Ahmed
+                                    </div>
+                                    <p>International conference on the latest advances in biotechnology and medical research.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wings Section -->
+        <section id="wings" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Research Wings</h2>
+                    <p>ERIC is organized into specialized research wings, each focusing on different domains of scientific inquiry and innovation.</p>
+                    
+                    <div class="publication-item">
+                        <h4>Computational Sciences Wing</h4>
+                        <p>Focuses on algorithm development, high-performance computing, and computational modeling across various scientific disciplines.</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Biotechnology & Life Sciences Wing</h4>
+                        <p>Dedicated to advancing research in molecular biology, genetics, bioengineering, and medical technologies.</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Artificial Intelligence & Machine Learning Wing</h4>
+                        <p>Developing cutting-edge AI solutions, neural networks, and intelligent systems for real-world applications.</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Environmental Sciences Wing</h4>
+                        <p>Research focused on sustainability, climate change, renewable energy, and environmental conservation technologies.</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Social Sciences & Policy Wing</h4>
+                        <p>Interdisciplinary research examining societal impacts of technology and evidence-based policy development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Recent Publications</h2>
+                    <p>Discover our latest research contributions and scholarly publications that are advancing knowledge in various fields.</p>
+                    
+                    <div class="publication-item">
+                        <h4>Machine Learning Approaches in Healthcare Diagnostics</h4>
+                        <p>Published in Journal of Medical AI, 2025. Authors: Dr. James Smith, Alex Rodriguez</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Sustainable Energy Solutions for Urban Environments</h4>
+                        <p>Published in Environmental Technology Review, 2025. Authors: Dr. Sarah Ahmed, Emma Stevens</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Computational Models for Molecular Interactions</h4>
+                        <p>Published in Computational Biology Journal, 2024. Authors: Dr. Priya Mehta, Maya Johnson</p>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <h4>Social Impact of Digital Innovation in Education</h4>
+                        <p>Published in Technology & Society Quarterly, 2024. Authors: Dr. Nabeel Mohammed, Kevin Li</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blogs Section -->
+        <section id="blogs" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Research Insights & Blogs</h2>
+                    <p>Stay updated with our latest research insights, methodologies, and thought leadership pieces from our community members.</p>
+                    
+                    <div class="blog-item">
+                        <h4>Getting Started with Research: A Student's Guide</h4>
+                        <p>Tips and strategies for undergraduate and graduate students beginning their research journey. Written by Kevin Li - January 2025</p>
+                    </div>
+                    
+                    <div class="blog-item">
+                        <h4>The Future of Interdisciplinary Research</h4>
+                        <p>Exploring how collaboration across different fields is driving innovation and breakthrough discoveries. Written by Dr. Nabeel Mohammed - December 2024</p>
+                    </div>
+                    
+                    <div class="blog-item">
+                        <h4>Data Ethics in Modern Research</h4>
+                        <p>Discussing the importance of ethical considerations in data collection and analysis for responsible research practices. Written by Maya Johnson - November 2024</p>
+                    </div>
+                    
+                    <div class="blog-item">
+                        <h4>Building Sustainable Research Communities</h4>
+                        <p>Lessons learned from establishing and maintaining collaborative research environments that foster innovation. Written by Dr. Priya Mehta - October 2024</p>
                     </div>
                 </div>
             </div>
@@ -446,150 +1131,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- People Section -->
-        <section id="people" class="section">
-            <div class="container">
-                <div class="content-section">
-                    <h2>Our Research Community</h2>
-                    <p>Meet the dedicated researchers, faculty members, and students who make up our vibrant research community. Together, we're pushing the boundaries of knowledge and innovation.</p>
-                    
-                    <div class="people-grid">
-                        <div class="person-card">
-                            <div class="person-avatar">DR</div>
-                            <h4>Dr. Nabeel Mohammed [NbM]</h4>
-                            <p>Principal Investigator</p>
-                            <p>Specializing in computational sciences and data analytics with over 10 years of research experience.</p>
-                        </div>
-                        <div class="person-card">
-                            <div class="person-avatar">PM</div>
-                            <h4>Dr. Nabeel Mohammed [NbM]</h4>
-                            <p>Senior Researcher</p>
-                            <p>Expert in biotechnology and molecular research with numerous published papers in top-tier journals.</p>
-                        </div>
-                        <div class="person-card">
-                            <div class="person-avatar">JS</div>
-                            <h4>Dr. Nabeel Mohammed [NbM]</h4>
-                            <p>PhD Candidate</p>
-                            <p>Researching artificial intelligence applications in healthcare and medical diagnostics.</p>
-                        </div>
-                        <div class="person-card">
-                            <div class="person-avatar">SA</div>
-                            <h4>Dr. Nabeel Mohammed [NbM]</h4>
-                            <p>Research Associate</p>
-                            <p>Data scientist focusing on machine learning algorithms and statistical modeling.</p>
-                        </div>
-                        <div class="person-card">
-                            <div class="person-avatar">SA</div>
-                            <h4>Dr. Nabeel Mohammed [NbM]</h4>
-                            <p>Research Associate</p>
-                            <p>Data scientist focusing on machine learning algorithms and statistical modeling.</p>
-                        </div>
-                        <div class="person-card">
-                            <div class="person-avatar">SA</div>
-                            <h4>Dr. Nabeel Mohammed [NbM]</h4>
-                            <p>Research Associate</p>
-                            <p>Data scientist focusing on machine learning algorithms and statistical modeling.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Wings Section -->
-        <section id="wings" class="section">
-            <div class="container">
-                <div class="content-section">
-                    <h2>Research Wings</h2>
-                    <p>ERIC is organized into specialized research wings, each focusing on different domains of scientific inquiry and innovation.</p>
-                    
-                    <div class="publication-item">
-                        <h4>Computational Sciences Wing</h4>
-                        <p>Focuses on algorithm development, high-performance computing, and computational modeling across various scientific disciplines.</p>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4>Biotechnology & Life Sciences Wing</h4>
-                        <p>Dedicated to advancing research in molecular biology, genetics, bioengineering, and medical technologies.</p>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4>Artificial Intelligence & Machine Learning Wing</h4>
-                        <p>Developing cutting-edge AI solutions, neural networks, and intelligent systems for real-world applications.</p>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4>Environmental Sciences Wing</h4>
-                        <p>Research focused on sustainability, climate change, renewable energy, and environmental conservation technologies.</p>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4>Social Sciences & Policy Wing</h4>
-                        <p>Interdisciplinary research examining societal impacts of technology and evidence-based policy development.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Publications Section -->
-        <section id="publications" class="section">
-            <div class="container">
-                <div class="content-section">
-                    <h2>Recent Publications</h2>
-                    <p>Discover our latest research contributions and scholarly publications that are advancing knowledge in various fields.</p>
-                    
-                    <div class="publication-item">
-                        <h4>Machine Learning Approaches in Healthcare Diagnostics</h4>
-                        <p>Published in Journal of Medical AI, 2024. Authors: Dr. Research Lead, John Student, Sarah Analyst</p>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4>Sustainable Energy Solutions for Urban Environments</h4>
-                        <p>Published in Environmental Technology Review, 2024. Authors: Prof. Maria Scholar, Environmental Team</p>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4>Computational Models for Molecular Interactions</h4>
-                        <p>Published in Computational Biology Journal, 2023. Authors: Research Team ERIC</p>
-                    </div>
-                    
-                    <div class="publication-item">
-                        <h4>Social Impact of Digital Innovation in Education</h4>
-                        <p>Published in Technology & Society Quarterly, 2023. Authors: Social Sciences Wing</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blogs Section -->
-        <section id="blogs" class="section">
-            <div class="container">
-                <div class="content-section">
-                    <h2>Research Insights & Blogs</h2>
-                    <p>Stay updated with our latest research insights, methodologies, and thought leadership pieces from our community members.</p>
-                    
-                    <div class="blog-item">
-                        <h4>Getting Started with Research: A Student's Guide</h4>
-                        <p>Tips and strategies for undergraduate and graduate students beginning their research journey. Written by John Student - January 2025</p>
-                    </div>
-                    
-                    <div class="blog-item">
-                        <h4>The Future of Interdisciplinary Research</h4>
-                        <p>Exploring how collaboration across different fields is driving innovation and breakthrough discoveries. Written by Dr. Research Lead - December 2024</p>
-                    </div>
-                    
-                    <div class="blog-item">
-                        <h4>Data Ethics in Modern Research</h4>
-                        <p>Discussing the importance of ethical considerations in data collection and analysis for responsible research practices. Written by Sarah Analyst - November 2024</p>
-                    </div>
-                    
-                    <div class="blog-item">
-                        <h4>Building Sustainable Research Communities</h4>
-                        <p>Lessons learned from establishing and maintaining collaborative research environments that foster innovation. Written by Prof. Maria Scholar - October 2024</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer>
@@ -617,12 +1158,39 @@
             
             // Add active class to clicked tab
             event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
         }
 
-        // Smooth scrolling for better UX
+        function filterPeople(category) {
+            const cards = document.querySelectorAll('.person-card');
+            const categories = document.querySelectorAll('.people-category');
+            
+            // Update active category
+            categories.forEach(cat => {
+                cat.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Filter cards
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    if (card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             // Add smooth hover effects
-            const cards = document.querySelectorAll('.person-card, .publication-item, .blog-item');
+            const cards = document.querySelectorAll('.person-card, .publication-item, .blog-item, .news-card, .event-card');
             cards.forEach(card => {
                 card.addEventListener('mouseenter', function() {
                     this.style.transform = 'translateY(-3px)';
