@@ -778,120 +778,122 @@
             </div>
         </section>
         
-    <!-- People Section -->
-    <section id="people" class="section">
-        <div class="container">
-            <div class="content-section">
-                <h2>Our Research Community</h2>
-                <p>Meet the dedicated researchers, faculty members, and students who make up our vibrant research community.</p>
-                
-                <div class="people-categories">
-                    <!--<div class="people-category active" onclick="filterPeople('all')">All Members</div>-->
-                    <div class="people-category" onclick="filterPeople('faculty')">Faculty Members</div>
-                    <div class="people-category" onclick="filterPeople('researchers')">Senior Researchers</div>
-                    <div class="people-category" onclick="filterPeople('assistants')">Research Assistants</div>
-                </div>
-                
-                <div class="people-grid">
-                    <div class="person-card" data-category="faculty">
-                        <div class="person-avatar">
-                            <img src="nbm.jpg" alt="photo">
-                        </div>
-                        <div class="person-info">
-                            <h4>Dr. Nabeel Mohammed</h4>
-                            <p class="position">Principal Investigator</p>
-                            <p>Computational Sciences</p>
-                        </div>
-                        <div class="person-links">
-                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
-                            <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
-                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
+        <!-- People Section -->
+        <section id="people" class="section">
+            <div class="container">
+                <div class="content-section">
+                    <h2>Our Research Community</h2>
+                    <p>Meet the dedicated researchers, faculty members, and students who make up our vibrant research community.</p>
+                    
+                    <div class="people-categories">
+                        <div class="people-category active" onclick="filterPeople('faculty')">Faculty Members</div>
+                        <div class="people-category" onclick="filterPeople('researchers')">Senior Researchers</div>
+                        <div class="people-category" onclick="filterPeople('assistants')">Research Assistants</div>
                     </div>
                     
-                    <div class="person-card" data-category="faculty">
-                        <div class="person-avatar">
-                            <img src="nbm.jpg" alt="photo">
+                    <div class="people-grid">
+                        <!-- Faculty Members -->
+                        <div class="person-card" data-category="faculty">
+                            <div class="person-avatar">
+                                <img src="demis.jpg" alt="photo">
+                            </div>
+                            <div class="person-info">
+                                <h4>Dr. Nabeel Mohammed</h4>
+                                <p class="position">Principal Investigator</p>
+                                <p>Computational Sciences</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
-                        <div class="person-info">
-                            <h4>Dr. ABC</h4>
-                            <p class="position">Senior Faculty</p>
-                            <p>Machine Learning</p>
+                        
+                        <div class="person-card" data-category="faculty">
+                            <div class="person-avatar">
+                                <img src="demis.jpg" alt="photo">
+                            </div>
+                            <div class="person-info">
+                                <h4>Dr. ABC</h4>
+                                <p class="position">Senior Faculty</p>
+                                <p>Machine Learning</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
-                        <div class="person-links">
-                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
-                            <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
-                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        
+                        <!-- Senior Researchers -->
+                        <div class="person-card" data-category="researchers" style="display: none;">
+                            <div class="person-avatar">
+                                <img src="demis.jpg" alt="photo">
+                            </div>
+                            <div class="person-info">
+                                <h4>Dr. ABC</h4>
+                                <p class="position">Senior Researcher</p>
+                                <p>AI & Machine Learning</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="person-card" data-category="researchers">
-                        <div class="person-avatar">
-                            <img src="nbm.jpg" alt="photo">
+                        
+                        <div class="person-card" data-category="researchers" style="display: none;">
+                            <div class="person-avatar">
+                                <img src="demis.jpg" alt="photo">
+                            </div>
+                            <div class="person-info">
+                                <h4>Dr. ABC</h4>
+                                <p class="position">Senior Researcher</p>
+                                <p>Environmental Sciences</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
-                        <div class="person-info">
-                            <h4>Dr. ABC</h4>
-                            <p class="position">Senior Researcher</p>
-                            <p>AI & Machine Learning</p>
+                        
+                        <!-- Research Assistants -->
+                        <div class="person-card" data-category="assistants" style="display: none;">
+                            <div class="person-avatar">
+                                <img src="demis.jpg" alt="photo">
+                            </div>
+                            <div class="person-info">
+                                <h4>ABC</h4>
+                                <p class="position">Research Assistant</p>
+                                <p>Data Science</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
-                        <div class="person-links">
-                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
-                            <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
-                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="person-card" data-category="researchers">
-                        <div class="person-avatar">
-                            <img src="nbm.jpg" alt="photo">
-                        </div>
-                        <div class="person-info">
-                            <h4>Dr. ABC/h4>
-                            <p class="position">Senior Researcher</p>
-                            <p>Environmental Sciences</p>
-                        </div>
-                        <div class="person-links">
-                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
-                            <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
-                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="person-card" data-category="assistants">
-                        <div class="person-avatar">
-                            <img src="nbm.jpg" alt="photo">
-                        </div>
-                        <div class="person-info">
-                            <h4>ABC</h4>
-                            <p class="position">Research Assistant</p>
-                            <p>Data Science</p>
-                        </div>
-                        <div class="person-links">
-                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
-                            <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
-                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    
-                    <div class="person-card" data-category="assistants">
-                        <div class="person-avatar">
-                           <img src="nbm.jpg" alt="photo">
-                        </div>
-                        <div class="person-info">
-                            <h4>ABC</h4>
-                            <p class="position">Research Assistant</p>
-                            <p>Machine Learning</p>
-                        </div>
-                        <div class="person-links">
-                            <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
-                            <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
-                            <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        
+                        <div class="person-card" data-category="assistants" style="display: none;">
+                           <div class="person-avatar">
+                               <img src="demis.jpg" alt="photo">
+                            </div>
+                            <div class="person-info">
+                                <h4>ABC</h4>
+                                <p class="position">Research Assistant</p>
+                                <p>Machine Learning</p>
+                            </div>
+                            <div class="person-links">
+                                <a href="#" class="person-link email"><i class="fas fa-envelope"></i></a>
+                                <a href="#" class="person-link scholar"><i class="fas fa-graduation-cap"></i></a>
+                                <a href="#" class="person-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
          <!-- Events Section -->
         <section id="events" class="section">
