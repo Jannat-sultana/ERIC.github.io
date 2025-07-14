@@ -278,7 +278,7 @@
             margin-right: auto;
         }
 
-                /* People Categories */
+        /* People Categories */
         .people-categories {
             display: flex;
             justify-content: center;
@@ -778,7 +778,7 @@
             </div>
         </section>
         
-        <!-- People Section -->
+    <!-- People Section -->
     <section id="people" class="section">
         <div class="container">
             <div class="content-section">
@@ -1214,22 +1214,18 @@
             const cards = document.querySelectorAll('.person-card');
             const categories = document.querySelectorAll('.people-category');
             
-            // Update active category
-            categories.forEach(cat => {
-                cat.classList.remove('active');
-            });
+            // Remove active class from all categories
+            categories.forEach(cat => cat.classList.remove('active'));
+            
+            // Add active class to clicked category
             event.target.classList.add('active');
             
-            // Filter cards
+            // Show/hide cards based on category
             cards.forEach(card => {
-                if (category === 'all') {
+                if (card.dataset.category === category) {
                     card.style.display = 'block';
                 } else {
-                    if (card.dataset.category === category) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    card.style.display = 'none';
                 }
             });
         }
